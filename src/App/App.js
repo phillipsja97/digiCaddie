@@ -14,6 +14,7 @@ import EditComment from '../Components/Pages/EditComment/EditComment';
 import AddComment from '../Components/Pages/AddComment/AddComment';
 import SingleCourse from '../Components/Pages/SingleCourse/SingleCourse';
 import SingleHole from '../Components/Pages/SingleHole/SingleHole';
+import MyNavBar from '../Components/Shared/MyNavBar/MyNavBar';
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import firebaseConnection from '../Helpers/data/connection';
@@ -53,6 +54,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
+          <MyNavBar authed={authed} />
             <Switch>
               <PublicRoute path="/auth" exact component={Auth} authed={authed}/>
               <PrivateRoute path="/" exact component={Home} authed={authed}/>
