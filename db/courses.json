@@ -1,0 +1,38 @@
+{
+  "course1": {
+    "name": "Gaylord Springs Golf Links",
+    "address": "18 Springhouse Ln, Nashville, TN 37214",
+    "slope": "133",
+    "yardage": "6842 yards",
+    "imageUrl1": "https://www.gaylordsprings.com/images/slideshows/banner_7.jpg",
+    "imageUrl2": "https://golfadvisor.brightspotcdn.com/dims4/default/24fd554/2147483647/strip/true/crop/1440x929+0+15/resize/930x600!/quality/90/?url=https%3A%2F%2Fgolfadvisor.brightspotcdn.com%2F3d%2Fea%2Fab5af699ef76e13954cddc6b877a%2F96542.jpg",
+    "imageUrl3": "https://www.gaylordsprings.com/images/slideshows/banner_2.jpg",
+    "imageUrl4": "https://i.ytimg.com/vi/2HxZ30VY-OA/maxresdefault.jpg",
+    "description": "The Cumberland River gave birth to the Scottish links-style Gaylord Springs Golf Links, a par-72 golf course that provides 18 testing holes that border limestone bluffs and wetlands protected by the feds. The golf course, designed by the former U.S. Open and PGA Champion Larry Nelson, has collected several distinctions over its days.",
+    "mapImage": ""
+  },
+  "course2": {
+    "name": "Hermitage Golf Course - The Generals Retreat",
+    "address": "3939 Old Hickory Blvd, Old Hickory, Tennessee 37138",
+    "slope": "131",
+    "yardage": "6773 yards",
+    "imageUrl1": "https://golfadvisor.brightspotcdn.com/dims4/default/655b2a3/2147483647/strip/true/crop/1021x659+0+55/resize/930x600!/quality/90/?url=https%3A%2F%2Fgolfadvisor.brightspotcdn.com%2F01%2F07%2Fc0a51def947160535b6f842e1746%2F93118.jpg",
+    "imageUrl2": "https://www.hermitagegolf.com/images/slideshows/banner_1.jpg",
+    "imageUrl3": "http://www.mygolfvacation.com/courseImages/GR-18.jpg",
+    "imageUrl4": "https://www.hermitagegolf.com/images/galleries/hermitage/Hermitage9.jpg",
+    "description": "General’s Retreat, built in 1986 with architect Gary Roger Baird, hosted the LPGA Sara Lee Classic from 1988 to 1999. Having been voted the “Best Golf Course in Nashville,” General’s Retreat is a “must play” when visiting the Nashville, Tennessee area.",
+    "mapImage": ""
+  },
+  "course3": {
+    "name": "Hermitage Golf Course - The Presidents Reserve",
+    "address": "3939 Old Hickory Blvd, Old Hickory, Tennessee 37138",
+    "slope": "132",
+    "yardage": "7157 yards",
+    "imageUrl1": "http://www.mygolfvacation.com/courseImages/hermitageprez2.jpg",
+    "imageUrl2": "https://www.hermitagegolf.com/images/galleries/hermitage/PR-3.jpg",
+    "imageUrl3": "https://www.hermitagegolf.com/images/galleries/hermitage/Hermitage4.jpg",
+    "imageUrl4": "https://static.golfsmash.com/club/1_5000/3117/images/1200x1200_1401304394642_coursephoto1.jpg",
+    "description": "The President’s Reserve, designed by architect Denis Griffiths (designer Atlanta’s Chateau Élan Resort Courses), trails through 300 acres of natural Tennessee wetlands and along the banks of the beautiful Cumberland River.",
+    "mapImage": ""
+  }
+}
