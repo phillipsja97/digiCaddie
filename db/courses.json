@@ -9,7 +9,7 @@
     "imageUrl2": "https://www.gaylordsprings.com/images/slideshows/banner_2.jpg",
     "imageUrl3": "https://i.ytimg.com/vi/2HxZ30VY-OA/maxresdefault.jpg",
     "description": "The Cumberland River gave birth to the Scottish links-style Gaylord Springs Golf Links, a par-72 golf course that provides 18 testing holes that border limestone bluffs and wetlands protected by the feds. The golf course, designed by the former U.S. Open and PGA Champion Larry Nelson, has collected several distinctions over its days.",
-    "mapImage": ""
+    "mapImage": "https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/gaylordmapscreenshot.PNG?raw=true"
   },
   "course2": {
     "name": "Hermitage Golf Course - The Generals Retreat",
@@ -21,7 +21,7 @@
     "imageUrl2": "http://www.mygolfvacation.com/courseImages/GR-18.jpg",
     "imageUrl3": "https://www.hermitagegolf.com/images/galleries/hermitage/Hermitage9.jpg",
     "description": "General’s Retreat, built in 1986 with architect Gary Roger Baird, hosted the LPGA Sara Lee Classic from 1988 to 1999. Having been voted the “Best Golf Course in Nashville,” General’s Retreat is a “must play” when visiting the Nashville, Tennessee area.",
-    "mapImage": ""
+    "mapImage": "https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/generalsRetreatScreenshot.PNG?raw=true"
   },
   "course3": {
     "name": "Hermitage Golf Course - The Presidents Reserve",
@@ -33,6 +33,6 @@
     "imageUrl2": "https://www.hermitagegolf.com/images/galleries/hermitage/Hermitage4.jpg",
     "imageUrl3": "https://static.golfsmash.com/club/1_5000/3117/images/1200x1200_1401304394642_coursephoto1.jpg",
     "description": "The President’s Reserve, designed by architect Denis Griffiths (designer Atlanta’s Chateau Élan Resort Courses), trails through 300 acres of natural Tennessee wetlands and along the banks of the beautiful Cumberland River.",
-    "mapImage": ""
+    "mapImage": "https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/generalsRetreatScreenshot.PNG?raw=true"
   }
 }
