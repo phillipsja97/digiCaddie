@@ -1,6 +1,7 @@
 import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import './Auth.scss';
 
 class Auth extends React.Component {
   loginClickEvent = (e) => {
@@ -12,8 +13,15 @@ class Auth extends React.Component {
   render() {
     return (
       <div className="Auth">
-        <h1>Auth</h1>
-          <button className="btn btn-outline-primary" onClick={this.loginClickEvent}>Login With Google</button>
+        <div className="mainContainer">
+          <div className="topContainer">
+          </div>
+            <div className="middleContainer">
+              <button className="loginButton" onClick={this.loginClickEvent}><img src="https://res.cloudinary.com/holiday-images/image/upload/v1569859896/google-sign-in_v3yhxi.png" className="loginButtonImage" /></button>
+            </div>
+          <div className="bottomContainer">
+          </div>
+        </div>
       </div>
     );
   }
