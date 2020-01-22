@@ -4,7 +4,7 @@ import apiKeys from '../apiKeys.json';
 const baseUrl = apiKeys.firebaseConfig.databaseURL;
 
 const getHolesByCourseId = (courseId) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/pins.json?orderBy="courseId"&equalTo="${courseId}"`)
+  axios.get(`${baseUrl}/holes.json?orderBy="courseId"&equalTo="${courseId}"`)
     .then((result) => {
       const holesObj = result.data;
       const holes = [];

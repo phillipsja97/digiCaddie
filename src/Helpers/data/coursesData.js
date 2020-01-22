@@ -22,4 +22,6 @@ const getAllCourses = () => new Promise((resolve, reject) => {
     });
 });
 
-export default { getAllCourses };
+const getSingleCourse = (courseId) => axios.get(`${baseUrl}/courses/${courseId}.json`);
+
+export default { getAllCourses, getSingleCourse };
