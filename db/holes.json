@@ -1,6 +1,6 @@
 {
   "hole1": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "551 yards",
     "handicap": "9",
     "holeNumber": "1",
@@ -8,7 +8,7 @@
     "par": "5"
   },
   "hole2": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "444 yards",
     "handicap": "3",
     "holeNumber": "2",
@@ -16,7 +16,7 @@
     "par": "4"
   },
   "hole3": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "161 yards",
     "handicap": "15",
     "holeNumber": "3",
@@ -24,7 +24,7 @@
     "par": "3"
   },
   "hole4": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "400 yards",
     "handicap": "11",
     "holeNumber": "4",
@@ -32,7 +32,7 @@
     "par": "4"
   },
   "hole5": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "454 yards",
     "handicap": "1",
     "holeNumber": "5",
@@ -40,7 +40,7 @@
     "par": "4"
   },
   "hole6": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "535 yards",
     "handicap": "7",
     "holeNumber": "6",
@@ -48,7 +48,7 @@
     "par": "5"
   },
   "hole7": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "466 yards",
     "handicap": "5",
     "holeNumber": "7",
@@ -56,7 +56,7 @@
     "par": "4"
   },
   "hole8": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "182 yards",
     "handicap": "17",
     "holeNumber": "8",
@@ -64,7 +64,7 @@
     "par": "3"
   },
   "hole9": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "354 yards",
     "handicap": "13",
     "holeNumber": "9",
@@ -72,7 +72,7 @@
     "par": "4"
   },
   "hole10": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "535 yards",
     "handicap": "10",
     "holeNumber": "5",
@@ -80,7 +80,7 @@
     "par": "5"
   },
   "hole11": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "451 yards",
     "handicap": "4",
     "holeNumber": "11",
@@ -88,14 +88,14 @@
     "par": "4"
   },
   "hole12": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "536 yards",
     "handicap": "8",
     "holeNumber": "12",
     "holeImageUrl": ""
   },
   "hole13": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "189 yards",
     "handicap": "18",
     "holeNumber": "13",
@@ -103,7 +103,7 @@
     "par": "3"
   },
   "hole14": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "340 yards",
     "handicap": "12",
     "holeNumber": "14",
@@ -111,7 +111,7 @@
     "par": "4"
   },
   "hole15": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "399 yards",
     "handicap": "6",
     "holeNumber": "15",
@@ -119,7 +119,7 @@
     "par": "4"
   },
   "hole16": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "322 yards",
     "handicap": "14",
     "holeNumber": "16",
@@ -127,7 +127,7 @@
     "par": "16"
   },
   "hole17": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "210 yards",
     "handicap": "16",
     "holeNumber": "17",
@@ -135,7 +135,7 @@
     "par": "3"
   },
   "hole18": {
-    "courseId": "1", 
+    "courseId": "course1", 
     "yardage": "452 yards",
     "handicap": "2",
     "holeNumber": "18",
