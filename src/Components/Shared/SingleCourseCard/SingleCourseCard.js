@@ -16,7 +16,7 @@ class SingleCourseCard extends React.Component {
               <h5 className="mt-0">Yardage: {course.yardage}</h5>
             </div>
         <div className="d-flex justify-content-end">
-         <Link className="btn btn-outline-primary" to="/course/courseId">Go To This Course</Link>
+         <Link className="btn btn-outline-primary" to={`/course/${course.id}`}>Go To This Course</Link>
         </div>
       </div>
     </div>
