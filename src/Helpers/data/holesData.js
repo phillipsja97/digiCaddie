@@ -22,4 +22,6 @@ const getHolesByCourseId = (courseId) => new Promise((resolve, reject) => {
     });
 });
 
-export default { getHolesByCourseId };
+const getSingleHole = (holeId) => axios.get(`${baseUrl}/holes/${holeId}.json`);
+
+export default { getHolesByCourseId, getSingleHole };

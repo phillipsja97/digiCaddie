@@ -8,34 +8,66 @@ import './SingleCourse.scss';
 class SingleCourse extends React.Component {
   state = {
     course: [],
-    hole: [],
+    allHoles: [],
+    startingHole: [],
+    startingHoleId: [],
   }
 
-  getSingleCourse = (courseId) => {
-    coursesData.getSingleCourse(courseId)
-      .then((course) => {
-        this.setState({ course: course.data });
-      })
-      .catch((errorFromSingleCourse) => (errorFromSingleCourse));
-  }
+  // getSingleCourse = (courseId) => {
+  //   coursesData.getSingleCourse(courseId)
+  //     .then((course) => {
+  //       this.setState({ course: course.data });
+  //     })
+  //     .catch((errorFromSingleCourse) => (errorFromSingleCourse));
+  // }
 
-  getHolesByCourseId = (courseId) => {
-    holesData.getHolesByCourseId(courseId)
-      .then((hole) => {
-        console.log(hole);
-        this.setState({ hole });
-      })
-      .catch((errorFromGetHoleByCourseId) => console.error(errorFromGetHoleByCourseId));
-  }
+  getSingleCourse = (courseId) => coursesData.getSingleCourse(courseId)
+    .then((courses) => {
+      this.setState({ courses: courses.data });
+    })
+    .catch((errorFromGetSingleCourse) => console.error({ errorFromGetSingleCourse }));
+
+  getHolesByCourseId = (courseId) => holesData.getHolesByCourseId(courseId)
+    .then((allHoles) => {
+      this.setState({ allHoles });
+      console.log(allHoles);
+    })
+    .catch((errorFromGetHoles) => console.error({ errorFromGetHoles }));
+
+  // getHoles = (courseId) => {
+  //   holesData.getHolesByCourseId(courseId)
+  //     .then((allHoles) => {
+  //       this.setState({ allHoles });
+  //       console.log('need it', allHoles);
+  //     })
+  //     .catch((errorFromGetHoles) => console.error(errorFromGetHoles));
+  // }
 
   componentDidMount() {
-    this.getSingleCourse(this.props.match.params.pathId);
-    this.getHolesByCourseId(this.props.match.params.pathId);
+    this.getSingleCourse(this.props.match.params.pathId)
+      .then(() => {
+        this.getHolesByCourseId(this.props.match.params.pathId)
+          .then(() => {
+            this.getStartingHole();
+          });
+      });
+  }
+
+  getStartingHole = () => {
+    const { allHoles } = this.state;
+    console.log('demHoles', allHoles);
+    const startingHole = this.state.allHoles.find((x) => x.holeNumber === '1');
+    this.setState({ startingHole });
+    console.log('startingHole', startingHole);
+    const startingHoleId = this.state.startingHole.id;
+    this.setState({ startingHoleId });
+    console.log(startingHoleId);
   }
 
   render() {
     const { course } = this.state;
-    const { hole } = this.state;
+    const { allHoles } = this.state;
+    const { startingHoleId } = this.state;
     const courseId = this.props.match.params.pathId;
     return (
       <div className="SingleCourse">
@@ -49,7 +81,7 @@ class SingleCourse extends React.Component {
                 <h2>Course Details:</h2>
                   <h5>Slope:  {course.slope}</h5>
                   <h5>Course Yardage:  {course.yardage}</h5>
-                  <Link className="btn btn-outline-primary" to={`/course/${courseId}/holes`}>Hole By Hole 
+                  <Link className="btn btn-outline-primary" to={`/course/${courseId}/${startingHoleId}`}>Hole By Hole
                           Caddie Tips
                   </Link>
               </div>
