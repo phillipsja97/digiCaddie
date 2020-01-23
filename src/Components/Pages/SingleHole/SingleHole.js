@@ -103,7 +103,7 @@ class SingleHole extends React.Component {
               <h3>Yards to Pin: {singleHole.yardage}</h3>
             </div>
           </div>
-      { this.state.comments.map((comment) => <SingleCommentCard key={comment.id} comment={comment} deleteComment={this.deleteComment} authed={this.authed}/>)}
+      { this.state.comments.map((comment) => <SingleCommentCard key={comment.id} comment={comment} deleteComment={this.deleteComment} theCourseId={theCourseId} theHoleId={singleHoleId} authed={this.authed}/>)}
       </div>
     );
   }
