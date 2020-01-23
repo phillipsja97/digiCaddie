@@ -22,4 +22,6 @@ const getCommentsByHoleId = (holeId) => new Promise((resolve, reject) => {
     });
 });
 
-export default { getCommentsByHoleId };
+const deleteAComment = (commentId) => axios.delete(`${baseUrl}/comments/${commentId}.json`);
+
+export default { getCommentsByHoleId, deleteAComment };
