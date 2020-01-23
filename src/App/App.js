@@ -59,8 +59,8 @@ class App extends React.Component {
               <PublicRoute path="/auth" exact component={Auth} authed={authed}/>
               <PrivateRoute path="/" exact component={Home} authed={authed}/>
               <PrivateRoute path="/courses" exact component={Courses} authed={authed} />
-              <PrivateRoute path="/course/:pathId" exact component={SingleCourse} authed={authed} />
-              <PrivateRoute path="/course/:pathId/holeId" exact component={SingleHole} authed={authed} />
+              <PrivateRoute path="/course/:courseId" exact component={SingleCourse} authed={authed} />
+              <PrivateRoute path="/course/:courseId/:holeId" exact component={SingleHole} authed={authed} />
               <PrivateRoute path="/course/courseId/holeId/add" exact component={AddComment} authed={authed} />
               <PrivateRoute path="/course/courseId/holeId/commentId/edit" exact component={EditComment} authed={authed} />
             </Switch>

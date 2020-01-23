@@ -13,6 +13,7 @@ const getHolesByCourseId = (courseId) => new Promise((resolve, reject) => {
           const newHole = holesObj[holeId];
           newHole.id = holeId;
           holes.push(newHole);
+          return holes.sort((a, b) => a.holeNumber - b.holeNumber);
         });
       }
       resolve(holes);
@@ -22,4 +23,6 @@ const getHolesByCourseId = (courseId) => new Promise((resolve, reject) => {
     });
 });
 
-export default { getHolesByCourseId };
+const getSingleHole = (holeId) => axios.get(`${baseUrl}/holes/${holeId}.json`);
+
+export default { getHolesByCourseId, getSingleHole };
