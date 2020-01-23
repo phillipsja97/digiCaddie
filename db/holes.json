@@ -75,7 +75,7 @@
     "courseId": "course1", 
     "yardage": "535 yards",
     "handicap": "10",
-    "holeNumber": "5",
+    "holeNumber": "10",
     "holeImageUrl": "https://www.gaylordsprings.com/images/hole_layouts/10_gaylord_hbh_copyright_protected.jpg",
     "par": "5"
   },
@@ -92,14 +92,15 @@
     "yardage": "536 yards",
     "handicap": "8",
     "holeNumber": "12",
-    "holeImageUrl": ""
+    "holeImageUrl": "https://www.gaylordsprings.com/images/hole_layouts/12_gaylord_hbh_copyright_protected.jpg",
+    "par": "5"
   },
   "hole13": {
     "courseId": "course1", 
     "yardage": "189 yards",
     "handicap": "18",
     "holeNumber": "13",
-    "holeImageUrl": "https://www.gaylordsprings.com/images/hole_layouts/12_gaylord_hbh_copyright_protected.jpg",
+    "holeImageUrl": "https://www.gaylordsprings.com/images/hole_layouts/13_gaylord_hbh_copyright_protected.jpg",
     "par": "3"
   },
   "hole14": {
