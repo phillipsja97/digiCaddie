@@ -8,6 +8,7 @@ import SingleCommentCard from '../../Shared/SingleCommentCard/SingleCommentCard'
 
 class SingleHole extends React.Component {
   state = {
+    authed: true,
     course: [],
     holes: [],
     hole: [],
@@ -65,11 +66,21 @@ class SingleHole extends React.Component {
     }
   }
 
+  deleteComment = (commentId) => {
+    commentsData.deleteAComment(commentId)
+      .then(() => {
+        this.getCommentsByHoleId(this.props.match.params.holeId);
+      })
+      .catch((error) => console.error(error));
+  }
+
   render() {
     const { holes } = this.state;
     const { course } = this.state;
     const { singleHole } = this.state;
     const { comments } = this.state;
+    const { deleteComment, authed } = this.props;
+    console.log('authed', authed);
     const theCourseId = this.props.match.params.courseId;
     const singleHoleId = this.props.match.params.holeId;
     return (
@@ -77,7 +88,7 @@ class SingleHole extends React.Component {
         <div className="d-flex justify-content-center pageNation">
           <nav aria-label="Page navigation example">
             <ul className="pagination pagination-lg">
-              { this.state.holes.map((hole) => <SingleHoleCard key={hole.id} hole={hole} theCourseId={theCourseId} singleHoleId={singleHoleId} />) }
+              { this.state.holes.map((hole) => <SingleHoleCard key={hole.id} hole={hole} theCourseId={theCourseId} singleHoleId={singleHoleId} authed={this.authed} />) }
             </ul>
           </nav>
         </div>
@@ -92,7 +103,7 @@ class SingleHole extends React.Component {
               <h3>Yards to Pin: {singleHole.yardage}</h3>
             </div>
           </div>
-      { this.state.comments.map((comment) => <SingleCommentCard key={comment.id} comment={comment} />)}
+      { this.state.comments.map((comment) => <SingleCommentCard key={comment.id} comment={comment} deleteComment={this.deleteComment} authed={this.authed}/>)}
       </div>
     );
   }
