@@ -22,8 +22,8 @@ class SingleCourse extends React.Component {
   // }
 
   getSingleCourse = (courseId) => coursesData.getSingleCourse(courseId)
-    .then((courses) => {
-      this.setState({ courses: courses.data });
+    .then((course) => {
+      this.setState({ course: course.data });
     })
     .catch((errorFromGetSingleCourse) => console.error({ errorFromGetSingleCourse }));
 
@@ -44,9 +44,9 @@ class SingleCourse extends React.Component {
   // }
 
   componentDidMount() {
-    this.getSingleCourse(this.props.match.params.pathId)
+    this.getSingleCourse(this.props.match.params.courseId)
       .then(() => {
-        this.getHolesByCourseId(this.props.match.params.pathId)
+        this.getHolesByCourseId(this.props.match.params.courseId)
           .then(() => {
             this.getStartingHole();
           });
@@ -68,7 +68,7 @@ class SingleCourse extends React.Component {
     const { course } = this.state;
     const { allHoles } = this.state;
     const { startingHoleId } = this.state;
-    const courseId = this.props.match.params.pathId;
+    const theCourseId = this.props.match.params.courseId;
     return (
       <div className="SingleCourse">
         <h1 className="d-flex justify-content-center courseTitle">{course.name}</h1>
@@ -81,7 +81,7 @@ class SingleCourse extends React.Component {
                 <h2>Course Details:</h2>
                   <h5>Slope:  {course.slope}</h5>
                   <h5>Course Yardage:  {course.yardage}</h5>
-                  <Link className="btn btn-outline-primary" to={`/course/${courseId}/${startingHoleId}`}>Hole By Hole
+                  <Link className="btn btn-outline-primary" to={`/course/${theCourseId}/${startingHoleId}`}>Hole By Hole
                           Caddie Tips
                   </Link>
               </div>

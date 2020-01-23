@@ -9,11 +9,10 @@ class SingleHoleCard extends React.Component {
 
   render() {
     const { hole } = this.props;
-    const { courseId } = this.props;
-    const { singleHoleId } = this.props;
+    const { theCourseId } = this.props;
     return (
       <div className="SingleHoleCard">
-        <li className="page-item"><Link className="page-link" to={`/course/${courseId}/${hole.id}`}>{hole.holeNumber}</Link></li>
+        <li className="page-item"><Link className="page-link" to={`/course/${theCourseId}/${hole.id}`}>{hole.holeNumber}</Link></li>
       </div>
     );
   }
