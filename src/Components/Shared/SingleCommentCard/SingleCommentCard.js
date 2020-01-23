@@ -29,7 +29,7 @@ class SingleCommentCard extends React.Component {
               <p>{comment.message}</p>
             </div>
         <Link className="btn btn-outline-primary" to={`/course/${theCourseId}/${theHoleId}/add`}>Add New Comment</Link>
-        <Link className="btn btn-outline-primary" to={`/course/${theCourseId}/${theHoleId}/edit`}>Edit Comment</Link>
+        <Link className="btn btn-outline-primary" to={`/course/${theCourseId}/${theHoleId}/${comment.id}/edit`}>Edit Comment</Link>
       </div>
     </div>
     );

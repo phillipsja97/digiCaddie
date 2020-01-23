@@ -17,7 +17,7 @@ class AddComment extends React.Component {
       uid: authData.getUid(),
     };
     commentsData.saveComment(newComment)
-      .then(() => this.props.history.push(`/course/${theCourseId}/${theHoleId}`))
+      .then(() => this.props.history.push(`/course/${theCourseId}/${theHoleId}/`))
       .catch((errorFromSaveComment) => console.error(errorFromSaveComment));
   }
 
