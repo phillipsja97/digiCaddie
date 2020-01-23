@@ -20,7 +20,7 @@ class SingleCourseCard extends React.Component {
               </ul>
             </div>
         <div className="d-flex justify-content-end">
-         <Link className="btn btn-outline-primary" to={`/course/${course.id}`}>Go To This Course</Link>
+         <Link className="btn btn-outline-primary" to={`/course/${course.id}`}>Course Details</Link>
         </div>
       </div>
     </div>

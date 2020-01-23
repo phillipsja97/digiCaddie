@@ -50,25 +50,36 @@ class SingleCourse extends React.Component {
     const theCourseId = this.props.match.params.courseId;
     return (
       <div className="SingleCourse">
-        <h1 className="d-flex justify-content-center courseTitle">{course.name}</h1>
-          <div className="container-fluid d-inline-flex detailsSection">
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h1 class="display-4">{course.name}</h1>
+              <p class="lead">{course.description}</p>
+          </div>
+            <div class="card offset-5 detailsSection">
+                    <div class="card-header">Course Details</div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{course.par}</li>
+                        <li class="list-group-item">{course.slope}</li>
+                        <li class="list-group-item">{course.yardage}</li>
+                      </ul>
+                    </div>
+                      <div className="singleHoleButton">
+                        <Link className="btn btn-outline-primary" to={`/course/${theCourseId}/${startingHoleId}`}>Hole By Hole
+                              Caddie Tips
+                        </Link>
+                      </div>
+            </div>
+          <div className="container-fluid d-inline-flex flex-wrap detailsSection">
             <div className="col-6">
-              <img src={course.mapImage} alt={course.address} className="courseMapImage" />
-              <h5>Address:  {course.address}</h5>
+              <div class="card">
+                <img src={course.mapImage} class="card-img-top courseMapImage" alt={course.name} />
+                  <div class="card-body">
+                    <p class="card-text">{course.address}</p>
+                  </div>
+              </div>
             </div>
               <div className="col-6 courseCharacteristics">
-                <h2>Course Details:</h2>
-                  <h5>Slope:  {course.slope}</h5>
-                  <h5>Course Yardage:  {course.yardage}</h5>
-                  <Link className="btn btn-outline-primary" to={`/course/${theCourseId}/${startingHoleId}`}>Hole By Hole
-                          Caddie Tips
-                  </Link>
-              </div>
-          </div>
-                  <div className="descriptionSection">
-                    <h3>{course.description}</h3>
-                  </div>
-                      <div className="coursePhotos">
+                    <div className="coursePhotos">
                       <Carousel>
                           <Carousel.Item>
                             <img
@@ -100,6 +111,8 @@ class SingleCourse extends React.Component {
                           </Carousel.Item>
                         </Carousel>
                       </div>
+              </div>
+          </div>
       </div>
     );
   }
