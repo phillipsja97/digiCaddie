@@ -13,14 +13,13 @@ class SingleHole extends React.Component {
     holes: [],
     hole: [],
     singleHole: [],
-    comments:[],
+    comments: [],
   }
 
   getSingleCourse = (courseId) => {
     coursesData.getSingleCourse(courseId)
       .then((course) => {
         this.setState({ course: course.data });
-        console.log('singleCourse', course);
       })
       .catch((errorFromGetSingleCourse) => console.error(errorFromGetSingleCourse));
   }
@@ -28,7 +27,6 @@ class SingleHole extends React.Component {
   getHolesByCourseId = (courseId) => {
     holesData.getHolesByCourseId(courseId)
       .then((holes) => {
-        console.log(holes);
         this.setState({ holes });
       })
       .catch((errorFromGetHoleByCourseId) => console.error(errorFromGetHoleByCourseId));
@@ -39,7 +37,6 @@ class SingleHole extends React.Component {
       .then((response) => {
         const singleHole = response.data;
         this.setState({ singleHole });
-        console.log('singleHole', singleHole);
       })
       .catch((errorFromSingleHole) => console.error(errorFromSingleHole));
   }
@@ -80,7 +77,6 @@ class SingleHole extends React.Component {
     const { singleHole } = this.state;
     const { comments } = this.state;
     const { deleteComment, authed } = this.props;
-    console.log('authed', authed);
     const theCourseId = this.props.match.params.courseId;
     const singleHoleId = this.props.match.params.holeId;
     return (

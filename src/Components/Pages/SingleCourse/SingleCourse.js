@@ -13,14 +13,6 @@ class SingleCourse extends React.Component {
     startingHoleId: [],
   }
 
-  // getSingleCourse = (courseId) => {
-  //   coursesData.getSingleCourse(courseId)
-  //     .then((course) => {
-  //       this.setState({ course: course.data });
-  //     })
-  //     .catch((errorFromSingleCourse) => (errorFromSingleCourse));
-  // }
-
   getSingleCourse = (courseId) => coursesData.getSingleCourse(courseId)
     .then((course) => {
       this.setState({ course: course.data });
@@ -30,18 +22,8 @@ class SingleCourse extends React.Component {
   getHolesByCourseId = (courseId) => holesData.getHolesByCourseId(courseId)
     .then((allHoles) => {
       this.setState({ allHoles });
-      console.log(allHoles);
     })
     .catch((errorFromGetHoles) => console.error({ errorFromGetHoles }));
-
-  // getHoles = (courseId) => {
-  //   holesData.getHolesByCourseId(courseId)
-  //     .then((allHoles) => {
-  //       this.setState({ allHoles });
-  //       console.log('need it', allHoles);
-  //     })
-  //     .catch((errorFromGetHoles) => console.error(errorFromGetHoles));
-  // }
 
   componentDidMount() {
     this.getSingleCourse(this.props.match.params.courseId)
@@ -66,7 +48,6 @@ class SingleCourse extends React.Component {
     const { allHoles } = this.state;
     const { startingHoleId } = this.state;
     const theCourseId = this.props.match.params.courseId;
-    console.log(theCourseId);
     return (
       <div className="SingleCourse">
         <h1 className="d-flex justify-content-center courseTitle">{course.name}</h1>

@@ -1,23 +1,16 @@
 .Home {
   padding-top: 3em;
+  height: 100vh;
+  background-image: url(https://wallpapercave.com/wp/Y3t43E3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.profileTitle {
-  padding-bottom: 1em;
+.profileCard {
+  width: 75%;
+  height: 45%;
 }
 
-.profileInfo {
-  padding-top: 1em;
-}
-
-.nameEmailContainer {
-  padding-top: 6em;
-}
-
-.userName {
-  padding-top: 2em;
-}
-
-.userEmail {
-  padding-top: 2em;
+.profileImage {
+  height: 102%;
 }

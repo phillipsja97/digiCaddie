@@ -24,7 +24,7 @@ class Courses extends React.Component {
     const { courses } = this.state;
     return (
       <div className="courses">
-        <h1>Find Courses</h1>
+        <h1 className="courseTitle">Find Courses</h1>
           <div className="container">
             { this.state.courses.map((course) => <SingleCourseCard key={course.id} course={course} />)};
           </div>
