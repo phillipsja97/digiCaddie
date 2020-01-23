@@ -24,4 +24,6 @@ const getCommentsByHoleId = (holeId) => new Promise((resolve, reject) => {
 
 const deleteAComment = (commentId) => axios.delete(`${baseUrl}/comments/${commentId}.json`);
 
-export default { getCommentsByHoleId, deleteAComment };
+const saveComment = (newComment) => axios.post(`${baseUrl}/comments.json`, newComment);
+
+export default { getCommentsByHoleId, deleteAComment, saveComment };
