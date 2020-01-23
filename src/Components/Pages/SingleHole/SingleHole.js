@@ -3,6 +3,8 @@ import holesData from '../../../Helpers/data/holesData';
 import coursesData from '../../../Helpers/data/coursesData';
 import SingleHoleCard from '../../Shared/SingleHoleCard/SingleHoleCard';
 import './SingleHole.scss';
+import commentsData from '../../../Helpers/data/commentsData';
+import SingleCommentCard from '../../Shared/SingleCommentCard/SingleCommentCard';
 
 class SingleHole extends React.Component {
   state = {
@@ -10,6 +12,7 @@ class SingleHole extends React.Component {
     holes: [],
     hole: [],
     singleHole: [],
+    comments:[],
   }
 
   getSingleCourse = (courseId) => {
@@ -40,15 +43,25 @@ class SingleHole extends React.Component {
       .catch((errorFromSingleHole) => console.error(errorFromSingleHole));
   }
 
+  getCommentsByHoleId = (holeId) => {
+    commentsData.getCommentsByHoleId(holeId)
+      .then((comments) => {
+        this.setState({ comments });
+      })
+      .catch((errorFromGetComments) => console.error(errorFromGetComments));
+  }
+
   componentDidMount() {
     this.getSingleHole(this.props.match.params.holeId);
     this.getHolesByCourseId(this.props.match.params.courseId);
     this.getSingleCourse(this.props.match.params.courseId);
+    this.getCommentsByHoleId(this.props.match.params.holeId);
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.match.params.holeId !== prevProps.match.params.holeId) {
       this.getSingleHole(this.props.match.params.holeId);
+      this.getCommentsByHoleId(this.props.match.params.holeId);
     }
   }
 
@@ -56,6 +69,7 @@ class SingleHole extends React.Component {
     const { holes } = this.state;
     const { course } = this.state;
     const { singleHole } = this.state;
+    const { comments } = this.state;
     const theCourseId = this.props.match.params.courseId;
     const singleHoleId = this.props.match.params.holeId;
     return (
@@ -78,6 +92,7 @@ class SingleHole extends React.Component {
               <h3>Yards to Pin: {singleHole.yardage}</h3>
             </div>
           </div>
+      { this.state.comments.map((comment) => <SingleCommentCard key={comment.id} comment={comment} />)}
       </div>
     );
   }
