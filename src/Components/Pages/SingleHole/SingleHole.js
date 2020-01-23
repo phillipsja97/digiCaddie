@@ -48,13 +48,14 @@ class SingleHole extends React.Component {
     const singleHoleId = this.props.match.params.holeId;
     return (
       <div className="SingleHole">
-       <h1>Helloooo</h1>
-       <nav aria-label="Page navigation example">
-          <ul className="pagination">
-    { this.state.holes.map((hole) => <SingleHoleCard key={hole.id} hole={hole} courseId={theCourseId} singleHoleId={singleHoleId} />) }
-  </ul>
-</nav>
-      <h1>{singleHole.holeNumber}</h1>
+        <div className="d-flex justify-content-center pageNation">
+          <nav aria-label="Page navigation example">
+            <ul className="pagination">
+              { this.state.holes.map((hole) => <SingleHoleCard key={hole.id} hole={hole} theCourseId={theCourseId} singleHoleId={singleHoleId} />) }
+            </ul>
+          </nav>
+        </div>
+          <h1>Hole #{singleHole.holeNumber}</h1>
       </div>
     );
   }

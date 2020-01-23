@@ -55,13 +55,10 @@ class SingleCourse extends React.Component {
 
   getStartingHole = () => {
     const { allHoles } = this.state;
-    console.log('demHoles', allHoles);
     const startingHole = this.state.allHoles.find((x) => x.holeNumber === '1');
     this.setState({ startingHole });
-    console.log('startingHole', startingHole);
     const startingHoleId = this.state.startingHole.id;
     this.setState({ startingHoleId });
-    console.log(startingHoleId);
   }
 
   render() {
@@ -69,6 +66,7 @@ class SingleCourse extends React.Component {
     const { allHoles } = this.state;
     const { startingHoleId } = this.state;
     const theCourseId = this.props.match.params.courseId;
+    console.log(theCourseId);
     return (
       <div className="SingleCourse">
         <h1 className="d-flex justify-content-center courseTitle">{course.name}</h1>

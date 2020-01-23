@@ -13,6 +13,7 @@ const getHolesByCourseId = (courseId) => new Promise((resolve, reject) => {
           const newHole = holesObj[holeId];
           newHole.id = holeId;
           holes.push(newHole);
+          return holes.sort((a, b) => a.holeNumber - b.holeNumber);
         });
       }
       resolve(holes);
