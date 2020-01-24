@@ -57,9 +57,9 @@ class SingleCourse extends React.Component {
           </div>
             <div class="card offset-5 detailsSection">
                     <div class="card-header">Course Details</div>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{course.par}</li>
-                        <li class="list-group-item">{course.slope}</li>
+                      <ul class="list-group list-group-horizontal-xl">
+                        <li class="list-group-item">Par: {course.par}</li>
+                        <li class="list-group-item">Slope: {course.slope}</li>
                         <li class="list-group-item">{course.yardage}</li>
                       </ul>
                     </div>
