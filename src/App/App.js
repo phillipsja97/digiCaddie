@@ -15,6 +15,7 @@ import AddComment from '../Components/Pages/AddComment/AddComment';
 import SingleCourse from '../Components/Pages/SingleCourse/SingleCourse';
 import SingleHole from '../Components/Pages/SingleHole/SingleHole';
 import MyNavBar from '../Components/Shared/MyNavBar/MyNavBar';
+import MyFooter from '../Components/Shared/MyFooter/MyFooter';
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import firebaseConnection from '../Helpers/data/connection';
@@ -64,6 +65,7 @@ class App extends React.Component {
               <PrivateRoute path="/course/:courseId/:holeId/add" exact component={AddComment} authed={authed} />
               <PrivateRoute path="/course/:courseId/:holeId/:commentId/edit" exact component={EditComment} authed={authed} />
             </Switch>
+            <MyFooter />
         </Router>
       </div>
     );
