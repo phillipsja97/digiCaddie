@@ -1,6 +1,7 @@
 import React from 'react';
 import authData from '../../../Helpers/data/authData';
 import commentsData from '../../../Helpers/data/commentsData';
+import './EditComment.scss';
 
 class EditComment extends React.Component {
   state = {
