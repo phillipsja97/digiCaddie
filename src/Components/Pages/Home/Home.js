@@ -10,15 +10,18 @@ class Home extends React.Component {
     const userEmail = user.email;
     const photo = user.photoURL;
     return (
-      <div className="Home">
-        <h1 className="d-flex justify-content-center profileTitle">Profile Information</h1>
-        <div className="d-flex homeContainer">
-          <div className="offset-1 profileInfo">
-            <img src={photo} alt="user Image" className="userImage" />
-          </div>
-            <div className="offset-1 nameEmailContainer">
-              <h2 className="userName">Profile Name: {name}</h2>
-              <h2 className="userEmail">Profile Email: {userEmail}</h2>
+      <div className="Home d-flex justify-content-center">
+        <div class="card mb-3 profileCard">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src={photo} class="card-img profileImage" alt={name} />
+            </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h1 class="card-title">{name}</h1>
+                  <p class="card-text">{userEmail}</p>
+                </div>
+              </div>
             </div>
         </div>
       </div>

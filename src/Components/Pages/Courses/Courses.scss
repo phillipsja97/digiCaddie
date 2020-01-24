@@ -1,4 +1,16 @@
-.container {
+.courseContainer {
+  margin-top: 2em;
   border-style: solid;
-  border-color: blue;
+  border-color:white;
+  overflow-y: scroll;
+  background-color: white;
+  height: 75vh;
+}
+
+.courses {
+  height: 100vh;
+  background-image: url(https://wallpapercave.com/wp/Y3t43E3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }

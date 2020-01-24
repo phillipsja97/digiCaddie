@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'react-bootstrap/Image';
 import holesData from '../../../Helpers/data/holesData';
 import coursesData from '../../../Helpers/data/coursesData';
 import SingleHoleCard from '../../Shared/SingleHoleCard/SingleHoleCard';
@@ -13,14 +14,13 @@ class SingleHole extends React.Component {
     holes: [],
     hole: [],
     singleHole: [],
-    comments:[],
+    comments: [],
   }
 
   getSingleCourse = (courseId) => {
     coursesData.getSingleCourse(courseId)
       .then((course) => {
         this.setState({ course: course.data });
-        console.log('singleCourse', course);
       })
       .catch((errorFromGetSingleCourse) => console.error(errorFromGetSingleCourse));
   }
@@ -28,7 +28,6 @@ class SingleHole extends React.Component {
   getHolesByCourseId = (courseId) => {
     holesData.getHolesByCourseId(courseId)
       .then((holes) => {
-        console.log(holes);
         this.setState({ holes });
       })
       .catch((errorFromGetHoleByCourseId) => console.error(errorFromGetHoleByCourseId));
@@ -39,7 +38,6 @@ class SingleHole extends React.Component {
       .then((response) => {
         const singleHole = response.data;
         this.setState({ singleHole });
-        console.log('singleHole', singleHole);
       })
       .catch((errorFromSingleHole) => console.error(errorFromSingleHole));
   }
@@ -59,7 +57,7 @@ class SingleHole extends React.Component {
     this.getCommentsByHoleId(this.props.match.params.holeId);
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps) {
     if (this.props.match.params.holeId !== prevProps.match.params.holeId) {
       this.getSingleHole(this.props.match.params.holeId);
       this.getCommentsByHoleId(this.props.match.params.holeId);
@@ -80,30 +78,40 @@ class SingleHole extends React.Component {
     const { singleHole } = this.state;
     const { comments } = this.state;
     const { deleteComment, authed } = this.props;
-    console.log('authed', authed);
     const theCourseId = this.props.match.params.courseId;
     const singleHoleId = this.props.match.params.holeId;
     return (
       <div className="SingleHole">
-        <div className="d-flex justify-content-center pageNation">
-          <nav aria-label="Page navigation example">
-            <ul className="pagination pagination-lg">
-              { this.state.holes.map((hole) => <SingleHoleCard key={hole.id} hole={hole} theCourseId={theCourseId} singleHoleId={singleHoleId} authed={this.authed} />) }
-            </ul>
-          </nav>
-        </div>
-          <h1>{course.name}, Hole #{singleHole.holeNumber}</h1>
+                <div class="jumbotron jumbotron-fluid">
+                  <div className="d-flex justify-content-center pageNation">
+                    <nav aria-label="Page navigation example">
+                      <ul className="pagination pagination-lg">
+                        { this.state.holes.map((hole) => <SingleHoleCard key={hole.id} hole={hole} theCourseId={theCourseId} singleHoleId={singleHoleId} authed={this.authed} />) }
+                      </ul>
+                    </nav>
+                  </div>
+                  <div class="container">
+                    <h1>{course.name}, Hole #{singleHole.holeNumber}</h1>
+                  </div>
+                </div>
           <div className="container-fluid d-inline-flex detailsSection">
             <div className="col-6 holeImageLocation">
-              <img src={singleHole.holeImageUrl} className="holeImage" />
+            <Image src={singleHole.holeImageUrl} fluid className="holeImage" />
             </div>
-            <div className="col-6 inset-1 holeDetails">
-              <h3>Par: {singleHole.par}</h3>
-              <h3>Hole Handicap: {singleHole.handicap}</h3>
-              <h3>Yards to Pin: {singleHole.yardage}</h3>
+            <div className="col-6 holeDetails">
+              <div class="card">
+                <div class="card-header">Hole Details:</div>
+                      <ul class="list-group list-group-xl">
+                        <li class="list-group-item">Par: {singleHole.par}</li>
+                        <li class="list-group-item">Handicap: {singleHole.handicap}</li>
+                        <li class="list-group-item">Yards To Pin: {singleHole.yardage}</li>
+                      </ul>
+              </div>
             </div>
           </div>
-      { this.state.comments.map((comment) => <SingleCommentCard key={comment.id} comment={comment} deleteComment={this.deleteComment} theCourseId={theCourseId} theHoleId={singleHoleId} authed={this.authed}/>)}
+          <div className="commentCard">
+            { this.state.comments.map((comment) => <SingleCommentCard key={comment.id} comment={comment} deleteComment={this.deleteComment} theCourseId={theCourseId} theHoleId={singleHoleId} authed={this.authed}/>)}
+          </div>
       </div>
     );
   }

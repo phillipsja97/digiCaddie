@@ -12,7 +12,7 @@ class SingleHoleCard extends React.Component {
     const { theCourseId } = this.props;
     return (
       <div className="SingleHoleCard">
-        <li className="page-item"><Link className="page-link" to={`/course/${theCourseId}/${hole.id}`}>{hole.holeNumber}</Link></li>
+        <li className="page-item"><Link className="page-link" to={`/course/${theCourseId}/${hole.id}`}>#{hole.holeNumber}</Link></li>
       </div>
     );
   }
