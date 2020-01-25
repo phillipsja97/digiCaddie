@@ -1,23 +1,14 @@
-.topContainer {
-  border-style: solid;
-  height: 45vh;
+.mainContainer {
+  height: 100vh;
+  background-image: url(https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/digiCaddie4.jpg?raw=true);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .topAuthImage {
   height: 100%;
   width: 100%;
-}
-
-.bottomContainer {
-  border-style: solid;
-  height: 45vh;
-  background-color: #578F53;
-}
-
-.middleContainer {
-  background-color: #1D3C26;
-  border-color: #578F53;
-  border-style: solid;
 }
 
 .loginButton {
