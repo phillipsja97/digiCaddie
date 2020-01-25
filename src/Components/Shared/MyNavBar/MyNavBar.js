@@ -10,6 +10,12 @@ class MyNavBar extends React.Component {
     firebase.auth().signOut();
   }
 
+  loginClickEvent = (e) => {
+    e.preventDefault();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider);
+  }
+
   render() {
     const { authed } = this.props;
     const buildNavBar = () => {
@@ -41,7 +47,18 @@ class MyNavBar extends React.Component {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           { buildNavBar() }
-       </div>
+        </div>
+        <div>
+        { (authed) ? (
+         <ul className="navbar-nav ml-auto"></ul>
+        )
+          : (<ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                <button className="loginButton" onClick={this.loginClickEvent}><img src="https://res.cloudinary.com/holiday-images/image/upload/v1569859896/google-sign-in_v3yhxi.png" className="loginButtonImage" /></button>
+                </li>
+            </ul>)
+        }
+        </div>
      </nav>
    </div>
     );

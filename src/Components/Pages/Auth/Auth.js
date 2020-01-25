@@ -14,16 +14,8 @@ class Auth extends React.Component {
     return (
       <div className="Auth">
         <div className="mainContainer">
-          <div className="topContainer">
-            <img src="https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/digiCaddie4.jpg?raw=true" className="topAuthImage"></img>
-          </div>
-            <div className="middleContainer">
-              <button className="loginButton" onClick={this.loginClickEvent}><img src="https://res.cloudinary.com/holiday-images/image/upload/v1569859896/google-sign-in_v3yhxi.png" className="loginButtonImage" /></button>
-            </div>
-          <div className="bottomContainer">
-          </div>
         </div>
-      </div>
+        </div>
     );
   }
 }
