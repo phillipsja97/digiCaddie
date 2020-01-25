@@ -57,9 +57,12 @@ class SingleHole extends React.Component {
     this.getCommentsByHoleId(this.props.match.params.holeId);
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (this.props.match.params.holeId !== prevProps.match.params.holeId) {
       this.getSingleHole(this.props.match.params.holeId);
+      this.getCommentsByHoleId(this.props.match.params.holeId);
+    }
+    if (this.state.comment !== prevState.comment) {
       this.getCommentsByHoleId(this.props.match.params.holeId);
     }
   }
@@ -110,7 +113,7 @@ class SingleHole extends React.Component {
             </div>
           </div>
           <div className="commentCard">
-            { this.state.comments.map((comment) => <SingleCommentCard key={comment.id} comment={comment} deleteComment={this.deleteComment} theCourseId={theCourseId} theHoleId={singleHoleId} authed={this.authed}/>)}
+           { this.state.comments.map((comment) => <SingleCommentCard key={comment.id} comment={comment} deleteComment={this.deleteComment} theCourseId={theCourseId} singleHoleId={singleHoleId} authed={this.authed} getCommentsByHoleId={this.getCommentsByHoleId} />)}
           </div>
       </div>
     );

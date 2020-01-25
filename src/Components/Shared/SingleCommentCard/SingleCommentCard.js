@@ -3,9 +3,17 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import { Link } from 'react-router-dom';
 import authData from '../../../Helpers/data/authData';
+import CommentModal from '../Modal/Modal';
 import './SingleCommentCard.scss';
 
 class SingleCommentCard extends React.Component {
+  state = {
+    show: false,
+  };
+
+handleClose = () => this.setState({ show: false,  });
+
+handleShow = () => this.setState({ show: true });
 
   deleteCommentEvent = (e) => {
     e.preventDefault();
@@ -14,11 +22,10 @@ class SingleCommentCard extends React.Component {
   }
 
   render() {
-    const { comment } = this.props;
     const user = firebase.auth().currentUser;
     const name = user.displayName;
     const photo = user.photoURL;
-    const { theHoleId, theCourseId } = this.props;
+    const { theCourseId, singleHoleId, comment, getCommentsByHoleId } = this.props;
     return (
         <div className="SingleCommentCard">
          <div class="card mb-3 col-6">
@@ -35,8 +42,12 @@ class SingleCommentCard extends React.Component {
                 </div>
               </div>
             </div>
-            <Link className="btn btn-outline-primary" to={`/course/${theCourseId}/${theHoleId}/add`}>Add New Comment</Link>
-            <Link className="btn btn-outline-primary" to={`/course/${theCourseId}/${theHoleId}/${comment.id}/edit`}>Edit Comment</Link>
+            <button className="btn btn-outline-primary" onClick={this.handleShow}>
+              Launch demo modal
+            </button>
+            <CommentModal show={this.state.show} handleClose={this.handleClose} singleHoleId={singleHoleId} theCourseId={theCourseId} getCommentsByHoleId={getCommentsByHoleId} />
+           {/* <Link className="btn btn-outline-primary" to={`/course/${theCourseId}/${theHoleId}/add`}>Add New Comment</Link>
+            <Link className="btn btn-outline-primary" to={`/course/${theCourseId}/${theHoleId}/${comment.id}/edit`}>Edit Comment</Link> */}
           </div>
         </div>
     );
