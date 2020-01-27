@@ -9,20 +9,12 @@ import './SingleCommentCard.scss';
 class SingleCommentCard extends React.Component {
   state = {
     show: false,
-    commentId: '',
     comment: [],
   }
 
 handleClose = () => this.setState({ show: false });
 
 handleShow = () => this.setState({ show: true });
-
-handleClick = (e) => {
-  const { commentId } = this.state;
-  this.state.commentId = e.target.getAttribute('id');
-  console.log(commentId);
-  this.handleShow();
-}
 
   deleteCommentEvent = (e) => {
     e.preventDefault();
@@ -35,7 +27,6 @@ handleClick = (e) => {
     const name = user.displayName;
     const photo = user.photoURL;
     const { theCourseId, singleHoleId, comment, getCommentsByHoleId } = this.props;
-    const { commentId } = this.state;
     return (
         <div className="SingleCommentCard">
          <div className="card mb-3 col-6">
@@ -52,7 +43,7 @@ handleClick = (e) => {
                 </div>
               </div>
             </div>
-            <button className="btn btn-outline-primary" id={comment.id} onClick={this.handleClick}>
+            <button className="btn btn-outline-primary" id={comment.id} onClick={this.handleShow}>
               Edit Comment
             </button>
             <EditModal show={this.state.show} comment={comment} handleClose={this.handleClose} singleHoleId={singleHoleId} theCourseId={theCourseId} getCommentsByHoleId={getCommentsByHoleId} />
