@@ -76,9 +76,6 @@ class EditModal extends React.Component {
         <Modal.Title>Edit Comment</Modal.Title>
         </Modal.Header>
         <InputGroup>
-          <InputGroup.Prepend>
-            <InputGroup.Text>With textarea</InputGroup.Text>
-            </InputGroup.Prepend>
           <FormControl as="textarea" aria-label="With textarea" value={this.state.editMessage} onChange={this.messageChange} />
         </InputGroup>
         <Modal.Footer>

@@ -51,9 +51,6 @@ class AddModal extends React.Component {
         <Modal.Title>Add Comment</Modal.Title>
         </Modal.Header>
         <InputGroup>
-          <InputGroup.Prepend>
-            <InputGroup.Text>With textarea</InputGroup.Text>
-            </InputGroup.Prepend>
           <FormControl as="textarea" aria-label="With textarea" value={this.state.newMessage} onChange={this.messageChange} />
         </InputGroup>
         <Modal.Footer>
