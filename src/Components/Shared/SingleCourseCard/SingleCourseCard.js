@@ -11,12 +11,12 @@ class SingleCourseCard extends React.Component {
           <img src={course.imageUrl} className="mr-3 courseImage" alt={course.name} />
             <div className="media-body">
               <h2 className="mt-0">{course.name}</h2>
-              <h7 className="mt-0">Location: {course.address}</h7>
+              <h6 className="mt-0">Location: {course.address}</h6>
               <h3 className="courseDetails">Course Details:</h3>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Course Slope Rating: {course.slope}</li>
-                <li class="list-group-item">Total Yards: {course.yardage}</li>
-                <li class="list-group-item">Par: {course.par}</li>
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Course Slope Rating: {course.slope}</li>
+                <li className="list-group-item">Total Yards: {course.yardage}</li>
+                <li className="list-group-item">Par: {course.par}</li>
               </ul>
             </div>
         <div className="d-flex justify-content-end">
