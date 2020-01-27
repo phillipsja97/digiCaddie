@@ -7,27 +7,26 @@ import {
   Image,
 } from 'react-bootstrap';
 import firebase from 'firebase/app';
-import commentsData from '../../../Helpers/data/commentsData';
-import authData from '../../../Helpers/data/authData';
 import 'firebase/auth';
-import './Modal.scss';
+import authData from '../../../Helpers/data/authData';
+import commentsData from '../../../Helpers/data/commentsData';
 
-class CommentModal extends React.Component {
+class AddModal extends React.Component {
   state = {
     newMessage: '',
   }
 
   saveCommentEvent = (e) => {
     e.preventDefault();
-    const { singleHoleId, theCourseId, handleClose, getCommentsByHoleId } = this.props;
+    const { theCourseId, singleHoleId, getCommentsByHoleId, handleClose } = this.props;
     const newComment = {
       message: this.state.newMessage,
-      holeId: this.props.singleHoleId,
+      holeId: singleHoleId,
       uid: authData.getUid(),
     };
     commentsData.saveComment(newComment)
       .then(() => {
-        getCommentsByHoleId(singleHoleId);
+        this.getCommentsByHoleId(singleHoleId);
       })
       .catch((errorFromSaveComment) => console.error(errorFromSaveComment));
       handleClose();
@@ -43,7 +42,7 @@ class CommentModal extends React.Component {
     const user = firebase.auth().currentUser;
     const photo = user.photoURL;
     return (
-     <div className="Modal">
+<div className="Modal">
      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
         <Col xs={6} md={4}>
@@ -71,4 +70,4 @@ class CommentModal extends React.Component {
   }
 }
 
-export default CommentModal;
+export default AddModal;

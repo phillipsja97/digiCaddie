@@ -50,17 +50,17 @@ class SingleCourse extends React.Component {
     const theCourseId = this.props.match.params.courseId;
     return (
       <div className="SingleCourse">
-        <div class="jumbotron jumbotron-fluid">
-          <div class="container">
-            <h1 class="display-4">{course.name}</h1>
-              <p class="lead">{course.description}</p>
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container">
+            <h1 className="display-4">{course.name}</h1>
+              <p className="lead">{course.description}</p>
           </div>
-            <div class="card offset-5 detailsSection">
-                    <div class="card-header">Course Details</div>
-                      <ul class="list-group list-group-horizontal-xl">
-                        <li class="list-group-item">Par: {course.par}</li>
-                        <li class="list-group-item">Slope: {course.slope}</li>
-                        <li class="list-group-item">{course.yardage}</li>
+            <div className="card offset-5 detailsSection">
+                    <div className="card-header">Course Details</div>
+                      <ul className="list-group list-group-horizontal-xl">
+                        <li className="list-group-item">Par: {course.par}</li>
+                        <li className="list-group-item">Slope: {course.slope}</li>
+                        <li className="list-group-item">{course.yardage}</li>
                       </ul>
                     </div>
                       <div className="singleHoleButton">
@@ -71,10 +71,10 @@ class SingleCourse extends React.Component {
             </div>
           <div className="container-fluid d-inline-flex flex-wrap detailsSection">
             <div className="col-6">
-              <div class="card">
-                <img src={course.mapImage} class="card-img-top courseMapImage" alt={course.name} />
-                  <div class="card-body">
-                    <p class="card-text">{course.address}</p>
+              <div className="card">
+                <img src={course.mapImage} className="card-img-top courseMapImage" alt={course.name} />
+                  <div className="card-body">
+                    <p className="card-text">{course.address}</p>
                   </div>
               </div>
             </div>

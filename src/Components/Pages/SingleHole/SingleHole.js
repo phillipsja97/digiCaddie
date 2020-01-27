@@ -6,6 +6,7 @@ import SingleHoleCard from '../../Shared/SingleHoleCard/SingleHoleCard';
 import './SingleHole.scss';
 import commentsData from '../../../Helpers/data/commentsData';
 import SingleCommentCard from '../../Shared/SingleCommentCard/SingleCommentCard';
+import AddModal from '../../Shared/AddModal/AddModal';
 
 class SingleHole extends React.Component {
   state = {
@@ -15,7 +16,13 @@ class SingleHole extends React.Component {
     hole: [],
     singleHole: [],
     comments: [],
+    show: false,
   }
+
+  
+handleClose = () => this.setState({ show: false });
+
+handleNewCommentShow = () => this.setState({ show: true });
 
   getSingleCourse = (courseId) => {
     coursesData.getSingleCourse(courseId)
@@ -85,7 +92,7 @@ class SingleHole extends React.Component {
     const singleHoleId = this.props.match.params.holeId;
     return (
       <div className="SingleHole">
-                <div class="jumbotron jumbotron-fluid">
+                <div className="jumbotron jumbotron-fluid">
                   <div className="d-flex justify-content-center pageNation">
                     <nav aria-label="Page navigation example">
                       <ul className="pagination pagination-lg">
@@ -93,7 +100,7 @@ class SingleHole extends React.Component {
                       </ul>
                     </nav>
                   </div>
-                  <div class="container">
+                  <div className="container">
                     <h1>{course.name}, Hole #{singleHole.holeNumber}</h1>
                   </div>
                 </div>
@@ -102,18 +109,22 @@ class SingleHole extends React.Component {
             <Image src={singleHole.holeImageUrl} fluid className="holeImage" />
             </div>
             <div className="col-6 holeDetails">
-              <div class="card">
-                <div class="card-header">Hole Details:</div>
-                      <ul class="list-group list-group-xl">
-                        <li class="list-group-item">Par: {singleHole.par}</li>
-                        <li class="list-group-item">Handicap: {singleHole.handicap}</li>
-                        <li class="list-group-item">Yards To Pin: {singleHole.yardage}</li>
+              <div className="card">
+                <div className="card-header">Hole Details:</div>
+                      <ul className="list-group list-group-xl">
+                        <li className="list-group-item">Par: {singleHole.par}</li>
+                        <li className="list-group-item">Handicap: {singleHole.handicap}</li>
+                        <li className="list-group-item">Yards To Pin: {singleHole.yardage}</li>
                       </ul>
               </div>
             </div>
           </div>
+          <button className="btn btn-outline-primary" onClick={this.handleNewCommentShow}>
+              Add Comment
+          </button>
+          <AddModal show={this.state.show} handleClose={this.handleClose} singleHoleId={singleHoleId} theCourseId={theCourseId} getCommentsByHoleId={this.getCommentsByHoleId} />
           <div className="commentCard">
-           { this.state.comments.map((comment) => <SingleCommentCard key={comment.id} comment={comment} deleteComment={this.deleteComment} theCourseId={theCourseId} singleHoleId={singleHoleId} authed={this.authed} getCommentsByHoleId={this.getCommentsByHoleId} />)}
+           { this.state.comments.map((comment) => <SingleCommentCard key={comment.id} comment={comment} deleteComment={this.deleteComment} theCourseId={theCourseId} singleHoleId={singleHoleId} authed={this.authed} getCommentsByHoleId={this.getCommentsByHoleId} show={this.state.show} handleClose={this.handleClose} />)}
           </div>
       </div>
     );
