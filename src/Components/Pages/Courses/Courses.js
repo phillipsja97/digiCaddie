@@ -22,22 +22,29 @@ class Courses extends React.Component {
   filterCourses = (e) => {
     const { filteredCourses, searchedCourse, courses} = this.state;
     const input = e.target.value.toLowerCase();
+    if (e.target.value !== '') {
+    const newCourses = [];
     const newCourseList = this.state.courses.filter((course) => course.name.toLowerCase().search(input) !== -1);
+    newCourses.push(newCourseList);
+    console.log('if', newCourses);
     this.setState({ courses: newCourseList });
-    console.log(courses, 'newState');
+    } else {
+      this.getAllCourses();
+    }
+    console.log('else', courses);
   }
 
   componentDidMount() {
     this.getAllCourses();
   }
 
-  componentDidUpdate(prevState) {
-    console.log(prevState.courses);
-    console.log(this.state.courses);
-    if (this.state.courses !== prevState.courses && prevState.courses !== undefined) {
-      console.log('in the if statement')
-    }
-  }
+  // componentDidUpdate(prevState) {
+  //   console.log(prevState.courses);
+  //   console.log(this.state.courses);
+  //   if (this.state.courses !== prevState.courses && prevState.courses !== undefined) {
+  //     console.log('in the if statement')
+  //   }
+  // }
 
   render() {
     const { courses } = this.state;
