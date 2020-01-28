@@ -38,14 +38,6 @@ class Courses extends React.Component {
     this.getAllCourses();
   }
 
-  // componentDidUpdate(prevState) {
-  //   console.log(prevState.courses);
-  //   console.log(this.state.courses);
-  //   if (this.state.courses !== prevState.courses && prevState.courses !== undefined) {
-  //     console.log('in the if statement')
-  //   }
-  // }
-
   render() {
     const { courses } = this.state;
     return (
