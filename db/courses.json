@@ -2,6 +2,7 @@
   "course1": {
     "name": "Gaylord Springs Golf Links",
     "address": "18 Springhouse Ln, Nashville, TN 37214",
+    "city": "Nashville",
     "slope": "133",
     "yardage": "6842 yards",
     "par": "72",
@@ -15,6 +16,7 @@
   "course2": {
     "name": "Hermitage Golf Course - The Generals Retreat",
     "address": "3939 Old Hickory Blvd, Old Hickory, Tennessee 37138",
+    "city": "Nashville",
     "slope": "131",
     "yardage": "6773 yards",
     "par": "72",
@@ -28,6 +30,7 @@
   "course3": {
     "name": "Hermitage Golf Course - The Presidents Reserve",
     "address": "3939 Old Hickory Blvd, Old Hickory, Tennessee 37138",
+    "city": "Charleston",
     "slope": "132",
     "yardage": "7157 yards",
     "par": "72",
