@@ -119,9 +119,12 @@ handleNewCommentShow = () => this.setState({ show: true });
               </div>
             </div>
           </div>
+          <div className="jumbotron jumbotron-fluid caddieJumbotron">
+            <h1>Caddie Tips:</h1>
           <button className="btn btn-outline-primary" onClick={this.handleNewCommentShow}>
               Add Comment
           </button>
+          </div>
           <AddModal show={this.state.show} handleClose={this.handleClose} singleHoleId={singleHoleId} theCourseId={theCourseId} getCommentsByHoleId={this.getCommentsByHoleId} />
           <div className="commentCard">
            { this.state.comments.map((comment) => <SingleCommentCard key={comment.id} comment={comment} deleteComment={this.deleteComment} theCourseId={theCourseId} singleHoleId={singleHoleId} authed={this.authed} getCommentsByHoleId={this.getCommentsByHoleId} show={this.state.show} handleClose={this.handleClose} />)}
