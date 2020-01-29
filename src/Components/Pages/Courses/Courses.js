@@ -47,7 +47,7 @@ class Courses extends React.Component {
             <div className="d-flex justify-content-center searchBar">
               <InputGroup className="mb-3 col-6">
                 <FormControl
-                  placeholder="search by city"
+                  placeholder="search by course name..."
                   aria-label="Recipient's username"
                   aria-describedby="basic-addon2"
                   value={this.searchedCourse}
