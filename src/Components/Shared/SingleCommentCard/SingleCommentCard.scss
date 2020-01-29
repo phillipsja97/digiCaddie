@@ -6,3 +6,37 @@
   display: flex;
   justify-content: center;
 }
+
+.commentImage {
+  height: 5em;
+  width: 5em;
+}
+
+.exitButton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.singleCard {
+  margin: 1em;
+}
+
+.actionList {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.likeImage {
+  display: flex;
+  justify-content: flex-end;
+  width: 2em;
+  height: 2em;
+}
+
+.likeButton {
+  margin-right: 1em;
+}
+
+.text-muted {
+  padding-right: 1em;
+} 
