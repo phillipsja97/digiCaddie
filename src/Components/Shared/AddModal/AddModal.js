@@ -29,7 +29,7 @@ class AddModal extends React.Component {
         getCommentsByHoleId(singleHoleId);
       })
       .catch((errorFromSaveComment) => console.error(errorFromSaveComment));
-      handleClose();
+    handleClose();
   }
 
   messageChange = (e) => {

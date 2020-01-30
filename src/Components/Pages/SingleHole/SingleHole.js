@@ -19,7 +19,6 @@ class SingleHole extends React.Component {
     show: false,
   }
 
-  
 handleClose = () => this.setState({ show: false });
 
 handleNewCommentShow = () => this.setState({ show: true });

@@ -23,4 +23,6 @@ const getScoresByUid = (uid) => new Promise((resolve, reject) => {
     });
 });
 
-export default { getScoresByUid };
+const saveScores = (newScore) => axios.post(`${baseUrl}/userScores.json`, newScore);
+
+export default { getScoresByUid, saveScores };
