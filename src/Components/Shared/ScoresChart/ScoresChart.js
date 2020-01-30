@@ -18,34 +18,32 @@ class ScoresChart extends React.Component {
     scoresData.getScoresByUid(uid)
       .then((userScores) => {
         this.setState({ userScores });
+        return userScores;
         console.log('getUserScores', userScores);
       })
       .catch((errorFromScoresData) => console.error(errorFromScoresData));
   }
 
   componentDidMount() {
-    this.getUserScores((authData.getUid()));
-    console.log(this.state.userScores);
-    const theData = this.state.userScores.map((x) => { return [{ date: x.date, value: x.score }]; });
-    console.log(theData);
-    am4core.useTheme(am4themes_animated);
-    const chart = am4core.create('theScoreChart', am4charts.XYChart);
-    chart.data = [{
-      date: new Date(2019, 3, 11),
-      value: 81,
-    }, {
-      date: new Date(2019, 9, 11),
-      value: 84,
-    }];
-    console.log(chart.data);
-    const dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-    dateAxis.title.text = 'Dates';
-    const valueAxis1 = chart.yAxes.push(new am4charts.ValueAxis());
-    valueAxis1.title.text = 'Scores';
-    const series = chart.series.push(new am4charts.ColumnSeries());
-    series.dataFields.valueY = 'value';
-    series.dataFields.dateX = 'date';
-    series.name = 'Scores';
+    scoresData.getScoresByUid(authData.getUid())
+      .then((userScores) => {
+        this.setState({ userScores });
+        console.log(userScores, 'userScores');
+        const theData = userScores.map((x) => new Object({ date: x.date, value: x.score }));
+        console.log(theData, 'theData');
+        am4core.useTheme(am4themes_animated);
+        const chart = am4core.create('theScoreChart', am4charts.XYChart);
+        chart.data = theData;
+        const dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+        dateAxis.title.text = 'Dates';
+        const valueAxis1 = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis1.title.text = 'Scores';
+        const series = chart.series.push(new am4charts.ColumnSeries());
+        series.dataFields.valueY = 'value';
+        series.dataFields.dateX = 'date';
+        series.name = 'Scores';
+      })
+      .catch((errorFromScoresData) => console.error(errorFromScoresData));
   }
 
   render() {
