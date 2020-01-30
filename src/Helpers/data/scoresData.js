@@ -13,7 +13,6 @@ const getScoresByUid = (uid) => new Promise((resolve, reject) => {
           const newScores = scoresObj[scoreId];
           newScores.id = scoreId;
           userScores.push(newScores);
-          return userScores.sort((a, b) => a.date - b.date);
         });
       }
       resolve(userScores);

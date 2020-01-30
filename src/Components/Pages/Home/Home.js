@@ -48,9 +48,9 @@ class Home extends React.Component {
             </div>
         </div>
       </div>
-      </div>
-      <div className="chart">
+      <div className="chart d-flex justify-content-center">
         <ScoresChart userScores={this.state.userScores} />
+      </div>
       </div>
       </div>
     );
