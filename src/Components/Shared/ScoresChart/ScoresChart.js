@@ -14,16 +14,6 @@ class ScoresChart extends React.Component {
     userScores: [],
   }
 
-  getUserScores = (uid) => {
-    scoresData.getScoresByUid(uid)
-      .then((userScores) => {
-        this.setState({ userScores });
-        return userScores;
-        console.log('getUserScores', userScores);
-      })
-      .catch((errorFromScoresData) => console.error(errorFromScoresData));
-  }
-
   componentDidMount() {
     scoresData.getScoresByUid(authData.getUid())
       .then((userScores) => {
@@ -35,6 +25,7 @@ class ScoresChart extends React.Component {
         const chart = am4core.create('theScoreChart', am4charts.XYChart);
         chart.data = theData;
         const dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+        dateAxis.dateFormatter.dateFormat = 'MM-dd';
         dateAxis.title.text = 'Dates';
         const valueAxis1 = chart.yAxes.push(new am4charts.ValueAxis());
         valueAxis1.title.text = 'Scores';
