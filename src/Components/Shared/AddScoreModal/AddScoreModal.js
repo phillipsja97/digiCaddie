@@ -19,9 +19,9 @@ class AddScoreModal extends React.Component {
 
   saveScoreEvent = (e) => {
     e.preventDefault();
-    const { handleClose } = this.props;
+    const { handleClose, getScoresAndGraph } = this.props;
     const { slicedUserScores } = this.state;
-    console.log(slicedUserScores);
+    console.log(slicedUserScores, 'newslice');
     const newScore = {
       score: this.state.newScore,
       date: this.state.newScoreDate,
@@ -29,7 +29,7 @@ class AddScoreModal extends React.Component {
     };
     scoresData.saveScores(newScore)
       .then(() => {
-        this.setState({ slicedUserScores });
+        getScoresAndGraph();
       })
       .catch((errorFromSaveScore) => console.error(errorFromSaveScore));
     handleClose();
