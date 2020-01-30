@@ -23,6 +23,19 @@ handleShow = () => this.setState({ show: true });
     deleteComment(comment.id);
   }
 
+  dateAndTime = () => {
+    const tempDate = new Date();
+    const date = tempDate.getFullYear() + '-' + (tempDate.getMonth()+1) + '-' + tempDate.getDate() +' '+ tempDate.getHours()+':'+ tempDate.getMinutes()+':'+ tempDate.getSeconds();
+    const currDate = 'Current Date= '+date;
+    return (
+      <p>{currDate}</p>
+    );
+  }
+
+  componentDidMount() {
+    console.log(this.dateAndDite);
+  }
+
   render() {
     const user = firebase.auth().currentUser;
     const name = user.displayName;
@@ -46,7 +59,7 @@ handleShow = () => this.setState({ show: true });
               </div>
             </div>
             <div className="d-inline-flex actionList mr-2">
-            <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+              <p className="card-text"><small className="text-muted"></small></p>
             <div className="likeSection">
             <button className="likeButton"><img src="https://image.flaticon.com/icons/png/512/81/81250.png" className="likeImage" /></button>
             </div>
