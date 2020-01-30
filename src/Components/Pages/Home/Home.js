@@ -7,6 +7,9 @@ import 'firebase/auth';
 import './Home.scss';
 
 class Home extends React.Component {
+  state = {
+    userScores: [],
+  }
 
   getUserScores = (uid) => {
     scoresData.getScoresByUid(uid)

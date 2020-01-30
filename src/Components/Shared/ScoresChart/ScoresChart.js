@@ -1,9 +1,13 @@
 import React from 'react';
-import { Victory } from 'victory';
+import * as am4core from '@amcharts/amcharts4/core';
+import * as am4charts from '@amcharts/amcharts4/charts';
+// eslint-disable-next-line camelcase
+import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import authData from '../../../Helpers/data/authData';
 import scoresData from '../../../Helpers/data/scoresData';
 import './ScoresChart.scss';
 
+am4core.useTheme(am4themes_animated);
 
 class ScoresChart extends React.Component {
   state = {
@@ -14,79 +18,41 @@ class ScoresChart extends React.Component {
     scoresData.getScoresByUid(uid)
       .then((userScores) => {
         this.setState({ userScores });
-        console.log(userScores);
+        console.log('getUserScores', userScores);
       })
       .catch((errorFromScoresData) => console.error(errorFromScoresData));
   }
 
   componentDidMount() {
     this.getUserScores((authData.getUid()));
+    console.log(this.state.userScores);
+    const theData = this.state.userScores.map((x) => { return [{ date: x.date, value: x.score }]; });
+    console.log(theData);
+    am4core.useTheme(am4themes_animated);
+    const chart = am4core.create('theScoreChart', am4charts.XYChart);
+    chart.data = [{
+      date: new Date(2019, 3, 11),
+      value: 81,
+    }, {
+      date: new Date(2019, 9, 11),
+      value: 84,
+    }];
+    console.log(chart.data);
+    const dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+    dateAxis.title.text = 'Dates';
+    const valueAxis1 = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis1.title.text = 'Scores';
+    const series = chart.series.push(new am4charts.ColumnSeries());
+    series.dataFields.valueY = 'value';
+    series.dataFields.dateX = 'date';
+    series.name = 'Scores';
   }
-
-  setDates = () => {
-    const { finalDates } = this.state;
-    const { userScores } = this.props;
-    console.log(userScores, 'important');
-    // const theDates = [];
-    // const datesObj = {};
-    // this.state.userScores.forEach((x) => {
-    //   datesObj.date = x.date;
-    //   theDates.push(datesObj);
-    //   return theDates;
-    // });
-    // console.log(theDates, 'theDates');
-    // this.setState({ finalDates: theDates });
-    // console.log(finalDates);
-  }
-
-  setScores = () => {
-    const { onlyScoresData } = this.state;
-    const theScores = [];
-    // const scores = this.state.userScores.map((x) => x.score);
-    // theScores.push(scores);
-    // this.setState({ onlyScoresData: theScores });
-    // console.log(onlyScoresData);
-  }
-
-  componentDidMount() {
-    this.setDates();
-    this.setScores();
-  }
-
 
   render() {
-    const mydata = {
-      labels: [this.state.finalDates],
-      datasets: [
-        {
-          label: 'My First dataset',
-          fill: false,
-          lineTension: 0.1,
-          backgroundColor: 'rgba(75,192,192,0.4)',
-          borderColor: 'rgba(75,192,192,1)',
-          borderCapStyle: 'butt',
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: 'miter',
-          pointBorderColor: 'rgba(75,192,192,1)',
-          pointBackgroundColor: '#fff',
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-          pointHoverBorderColor: 'rgba(220,220,220,1)',
-          pointHoverBorderWidth: 2,
-          pointRadius: 1,
-          pointHitRadius: 10,
-          data: [this.state.onlyScoresData],
-        }
-      ],
-    };
     return (
-      <article className="canvas-container">
-        <Bar
-        data={this.myData}
-        />
-      </article>
+      <div className="graph">
+        <div id="theScoreChart"></div>
+      </div>
     );
   }
 }
