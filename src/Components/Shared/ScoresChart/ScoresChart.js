@@ -20,7 +20,9 @@ class ScoresChart extends React.Component {
     scoresData.getScoresByUid(authData.getUid())
       .then((userScores) => {
         console.log(userScores, 'userScores');
-        const scoreId = userScores.map((y) => new Object({ date: y.date, value: y.score, id: y.id.split('score')[1] }));
+        const sortedScores = userScores.sort((a, b) => new Date(a.date) - new Date(b.date));
+        console.log(sortedScores, 'sorted');
+        const scoreId = sortedScores.map((y) => new Object({ date: y.date, value: y.score, id: y.id.split('score')[1] }));
         console.log(scoreId, 'scoreId');
         scoreId.sort((a, b) => a.id - b.id);
         // const theData = scoreId.map((x) => new Object({ date: x.date, value: x.score }));
@@ -28,6 +30,7 @@ class ScoresChart extends React.Component {
         console.log(slicedData, 'sliced');
         am4core.useTheme(am4themes_animated);
         const chart = am4core.create('theScoreChart', am4charts.XYChart);
+        // chart.data = slicedData;
         chart.data = slicedData;
         const dateAxis = chart.xAxes.push(new am4charts.DateAxis());
         dateAxis.dateFormatter.dateFormat = 'dd-ww';
