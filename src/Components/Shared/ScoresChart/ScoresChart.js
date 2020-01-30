@@ -1,6 +1,5 @@
 import React from 'react';
 import { Victory } from 'victory';
-import ScoresChart from '../../Shared/ScoresChart/ScoresChart';
 import authData from '../../../Helpers/data/authData';
 import scoresData from '../../../Helpers/data/scoresData';
 import './ScoresChart.scss';
