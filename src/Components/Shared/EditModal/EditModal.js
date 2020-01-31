@@ -17,27 +17,6 @@ class EditModal extends React.Component {
     editMessage: '',
   }
 
-  saveCommentEvent = (e) => {
-    e.preventDefault();
-    const theHoleId = this.props.match.params.holeId;
-    const theCourseId = this.props.match.params.courseId;
-    const newComment = {
-      message: this.state.newMessage,
-      holeId: this.props.match.params.holeId,
-      uid: authData.getUid(),
-    };
-    commentsData.saveComment(newComment)
-      .then(() => this.props.history.push(`/course/${theCourseId}/${theHoleId}/`))
-      .catch((errorFromSaveComment) => console.error(errorFromSaveComment));
-  }
-
-  componentDidMount() {
-    const { comment } = this.props;
-    if (comment.id) {
-           this.setState({ editMessage: this.props.comment.message });
-    }
-  }
-
   editCommentEvent = (e) => {
     e.preventDefault();
     const { singleHoleId, theCourseId, handleClose, getCommentsByHoleId } = this.props;
@@ -52,7 +31,7 @@ class EditModal extends React.Component {
         getCommentsByHoleId(singleHoleId);
       })
       .catch((errorFromSaveComment) => console.error(errorFromSaveComment));
-      handleClose();
+    handleClose();
   }
 
   messageChange = (e) => {

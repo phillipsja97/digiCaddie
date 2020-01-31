@@ -20,8 +20,6 @@ class AddScoreModal extends React.Component {
   saveScoreEvent = (e) => {
     e.preventDefault();
     const { handleClose, getScoresAndGraph } = this.props;
-    const { slicedUserScores } = this.state;
-    console.log(slicedUserScores, 'newslice');
     const newScore = {
       score: this.state.newScore,
       date: this.state.newScoreDate,
@@ -50,7 +48,7 @@ class AddScoreModal extends React.Component {
     const user = firebase.auth().currentUser;
     const photo = user.photoURL;
     return (
-<div className="Modal">
+<div className="Modal d-flex justify-content-center">
      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
         <Col xs={6} md={4}>
@@ -58,16 +56,23 @@ class AddScoreModal extends React.Component {
         </Col>
         <Modal.Title>Add Score</Modal.Title>
         </Modal.Header>
+        <div className="d-flex justify-content-center">
+        <div className="d-inline-flex justify-content-center">
+        <label htmlFor="basic-url" className="d-flex justify-content-center">Score: </label>
         <InputGroup className="mb-3">
+          <Col xs={12}>
           <FormControl
             aria-label="Default"
             aria-describedby="inputGroup-sizing-default"
             value={this.state.newScore}
             onChange={this.scoreChange}
           />
+          </Col>
         </InputGroup>
-        <div class="form-group">
-          <label for="date" class="col-sm-2 col-form-label">Date</label>
+        </div>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <label for="date" className="col-sm-2 col-form-label">Date</label>
             <div class="col-sm-10">
               <input type="date" class="form-control" value={this.state.newScoreDate} onChange={this.dateChange} id="inputPassword"/>
             </div>

@@ -8,6 +8,7 @@ import 'firebase/auth';
 import authData from '../../../Helpers/data/authData';
 import scoresData from '../../../Helpers/data/scoresData';
 import AddScoreModal from '../AddScoreModal/AddScoreModal';
+import EditScoreModal from '../EditScoreModal/EditScoreModal';
 import './ScoresChart.scss';
 
 am4core.useTheme(am4themes_animated);
@@ -16,6 +17,7 @@ class ScoresChart extends React.Component {
   state = {
     userScores: [],
     show: false,
+    editShow: false,
     slicedUserScores: [],
   }
 
@@ -80,7 +82,20 @@ class ScoresChart extends React.Component {
 
   handleClose = () => this.setState({ show: false });
 
-  handleNewCommentShow = () => this.setState({ show: true });
+  handleNewScoreShow = () => this.setState({ show: true });
+
+  handleEditClose = () => this.setState({ editShow: false });
+
+  handleEditScoreShow = () => this.setState({ editShow: true });
+
+  deleteScore = (scoreId) => {
+    scoresData.deleteAScore(scoreId)
+      .then(() => {
+        this.getScoresAndGraph();
+        this.handleEditClose();
+      })
+      .catch((error) => console.error(error));
+  }
 
   render() {
     const user = firebase.auth().currentUser;
@@ -89,11 +104,12 @@ class ScoresChart extends React.Component {
       <div className="graph">
         <h1>{name}'s Last 5 Scores</h1>
         <div className="buttons">
-          <button className="btn btn-outline-primary" onClick={this.handleNewCommentShow}>Add A New Score</button>
-          <button className="btn btn-outline-primary">Edit A Score</button>
+          <button className="btn btn-outline-primary" onClick={this.handleNewScoreShow}>Add A New Score</button>
+          <button className="btn btn-outline-primary" onClick={this.handleEditScoreShow}>Edit A Score</button>
         </div>
         <div id="theScoreChart"></div>
         <AddScoreModal show={this.state.show} handleClose={this.handleClose} slicedUserScores={this.state.slicedUserScores} getScoresAndGraph={this.getScoresAndGraph} />
+        <EditScoreModal editShow={this.state.editShow} handleEditClose={this.handleEditClose} getScoresAndGraph={this.getScoresAndGraph} slicedUserScores={this.state.slicedUserScores} deleteScore={this.deleteScore} />
       </div>
     );
   }

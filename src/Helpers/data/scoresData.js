@@ -25,4 +25,6 @@ const getScoresByUid = (uid) => new Promise((resolve, reject) => {
 
 const saveScores = (newScore) => axios.post(`${baseUrl}/userScores.json`, newScore);
 
-export default { getScoresByUid, saveScores };
+const deleteAScore = (scoreId) => axios.delete(`${baseUrl}/userScores/${scoreId}.json`);
+
+export default { getScoresByUid, saveScores, deleteAScore };

@@ -23,15 +23,6 @@ handleShow = () => this.setState({ show: true });
     deleteComment(comment.id);
   }
 
-  dateAndTime = () => {
-    const tempDate = new Date();
-    const date = tempDate.getFullYear() + '-' + (tempDate.getMonth()+1) + '-' + tempDate.getDate() +' '+ tempDate.getHours()+':'+ tempDate.getMinutes()+':'+ tempDate.getSeconds();
-    const currDate = 'Current Date= '+date;
-    return (
-      <p>{currDate}</p>
-    );
-  }
-
   componentDidMount() {
     console.log(this.dateAndDite);
   }
