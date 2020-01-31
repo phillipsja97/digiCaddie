@@ -1,9 +1,8 @@
+/* eslint-disable max-len */
 import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import Image from 'react-bootstrap/image';
-import authData from '../../../Helpers/data/authData';
-import commentsData from '../../../Helpers/data/commentsData';
 import EditModal from '../EditModal/EditModal';
 import './SingleCommentCard.scss';
 
@@ -27,7 +26,12 @@ handleShow = () => this.setState({ show: true });
     const user = firebase.auth().currentUser;
     const name = user.displayName;
     const photo = user.photoURL;
-    const { theCourseId, singleHoleId, comment, getCommentsByHoleId } = this.props;
+    const {
+      theCourseId,
+      singleHoleId,
+      comment,
+      getCommentsByHoleId,
+    } = this.props;
     return (
         <div className="SingleCommentCard">
          <div className="card col-6 pl-0 pr-0 singleCard">
@@ -46,10 +50,7 @@ handleShow = () => this.setState({ show: true });
               </div>
             </div>
             <div className="d-inline-flex actionList mr-2">
-            <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-            <div className="likeSection">
-            <button className="likeButton"><img src="https://image.flaticon.com/icons/png/512/81/81250.png" className="likeImage" /></button>
-            </div>
+              <p className="card-text"><small className="text-muted"></small></p>
             <div className="editButton">
             <button className="btn btn-outline-primary" id={comment.id} onClick={this.handleShow}>
               Edit Comment

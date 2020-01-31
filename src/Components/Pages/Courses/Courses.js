@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import coursesData from '../../../Helpers/data/coursesData';
@@ -17,21 +18,18 @@ class Courses extends React.Component {
         this.setState({ courses });
       })
       .catch((errorFromGetCourses) => console.error(errorFromGetCourses));
-    }
+  }
 
   filterCourses = (e) => {
-    const { filteredCourses, searchedCourse, courses} = this.state;
     const input = e.target.value.toLowerCase();
     if (e.target.value !== '') {
-    const newCourses = [];
-    const newCourseList = this.state.courses.filter((course) => course.name.toLowerCase().search(input) !== -1);
-    newCourses.push(newCourseList);
-    console.log('if', newCourses);
-    this.setState({ courses: newCourseList });
+      const newCourses = [];
+      const newCourseList = this.state.courses.filter((course) => course.name.toLowerCase().search(input) !== -1);
+      newCourses.push(newCourseList);
+      this.setState({ courses: newCourseList });
     } else {
       this.getAllCourses();
     }
-    console.log('else', courses);
   }
 
   componentDidMount() {
@@ -39,7 +37,6 @@ class Courses extends React.Component {
   }
 
   render() {
-    const { courses } = this.state;
     return (
       <div className="courses">
         <h1 className="courseTitle">Find Courses</h1>

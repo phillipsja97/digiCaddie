@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import Image from 'react-bootstrap/Image';
 import holesData from '../../../Helpers/data/holesData';
@@ -19,7 +20,6 @@ class SingleHole extends React.Component {
     show: false,
   }
 
-  
 handleClose = () => this.setState({ show: false });
 
 handleNewCommentShow = () => this.setState({ show: true });
@@ -83,11 +83,8 @@ handleNewCommentShow = () => this.setState({ show: true });
   }
 
   render() {
-    const { holes } = this.state;
     const { course } = this.state;
     const { singleHole } = this.state;
-    const { comments } = this.state;
-    const { deleteComment, authed } = this.props;
     const theCourseId = this.props.match.params.courseId;
     const singleHoleId = this.props.match.params.holeId;
     return (

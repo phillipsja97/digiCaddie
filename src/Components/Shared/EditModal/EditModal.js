@@ -17,42 +17,33 @@ class EditModal extends React.Component {
     editMessage: '',
   }
 
-  saveCommentEvent = (e) => {
-    e.preventDefault();
-    const theHoleId = this.props.match.params.holeId;
-    const theCourseId = this.props.match.params.courseId;
-    const newComment = {
-      message: this.state.newMessage,
-      holeId: this.props.match.params.holeId,
-      uid: authData.getUid(),
-    };
-    commentsData.saveComment(newComment)
-      .then(() => this.props.history.push(`/course/${theCourseId}/${theHoleId}/`))
-      .catch((errorFromSaveComment) => console.error(errorFromSaveComment));
-  }
-
   componentDidMount() {
     const { comment } = this.props;
     if (comment.id) {
-           this.setState({ editMessage: this.props.comment.message });
+      commentsData.getSingleComment(comment.id)
+        .then((request) => {
+          const comments = request.data;
+          this.setState({ editMessage: comments.message });
+        })
+        .catch((errorFromEditMessage) => (errorFromEditMessage));
     }
   }
 
   editCommentEvent = (e) => {
     e.preventDefault();
-    const { singleHoleId, theCourseId, handleClose, getCommentsByHoleId } = this.props;
-    const { theCommentId, comment } = this.props;
+    const { singleHoleId, handleClose, getCommentsByHoleId } = this.props;
+    const { comment } = this.props;
     const updatedComment = {
       message: this.state.editMessage,
       holeId: this.props.singleHoleId,
-      uid: authData.getUid()
+      uid: authData.getUid(),
     };
     commentsData.updateComment(comment.id, updatedComment)
       .then(() => {
         getCommentsByHoleId(singleHoleId);
       })
       .catch((errorFromSaveComment) => console.error(errorFromSaveComment));
-      handleClose();
+    handleClose();
   }
 
   messageChange = (e) => {
@@ -60,10 +51,8 @@ class EditModal extends React.Component {
     this.setState({ editMessage: e.target.value });
   }
 
-
-
   render() {
-    const { show, handleClose, comment } = this.props;
+    const { show, handleClose } = this.props;
     const user = firebase.auth().currentUser;
     const photo = user.photoURL;
     return (

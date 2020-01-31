@@ -18,7 +18,11 @@ class AddModal extends React.Component {
 
   saveCommentEvent = (e) => {
     e.preventDefault();
-    const { theCourseId, comment, singleHoleId, getCommentsByHoleId, handleClose } = this.props;
+    const {
+      singleHoleId,
+      getCommentsByHoleId,
+      handleClose,
+    } = this.props;
     const newComment = {
       message: this.state.newMessage,
       holeId: singleHoleId,
@@ -29,7 +33,7 @@ class AddModal extends React.Component {
         getCommentsByHoleId(singleHoleId);
       })
       .catch((errorFromSaveComment) => console.error(errorFromSaveComment));
-      handleClose();
+    handleClose();
   }
 
   messageChange = (e) => {
