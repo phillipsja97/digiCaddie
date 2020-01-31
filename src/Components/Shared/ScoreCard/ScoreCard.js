@@ -1,22 +1,30 @@
 import React from 'react';
+import EditScoreModal2 from '../EditScoreModal2/EditScoreModal2';
 
 class ScoreCard extends React.Component {
+  state = {
+    editShow2: false,
+  }
 
-  handleEditShow = (e) => {
+  handleEditShow2 = (e) => {
     e.preventDefault();
     const { editShow2 } = this.props;
     this.setState({ editShow2: true });
+  }
+
+  handleEditClose2 = (e) => {
+    const { editShow2 } = this.props;
+    this.setState({ editShow2: false });
   }
 
   deleteScoreEvent = (e) => {
     e.preventDefault();
     const { deleteScore, scores } = this.props;
     deleteScore(scores.id);
-    
   }
 
   render() {
-    const { scores, editShow2 } = this.props;
+    const { scores, handleEditClose, getScoresAndGraph } = this.props;
     return (
       <div className="ScoreCard">
         <div className="card d-flex justify-content-center">
@@ -31,6 +39,7 @@ class ScoreCard extends React.Component {
               </li>
             </ul>
           </div>
+          <EditScoreModal2 scores={scores} editShow2={this.state.editShow2} handleEditClose2={this.handleEditClose2} handleEditClose={handleEditClose} getScoresAndGraph={getScoresAndGraph} />
       </div>
     );
   }

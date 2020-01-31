@@ -15,8 +15,6 @@ import './EditScoreModal.scss';
 
 class EditScoreModal extends React.Component {
   state = {
-    editDate: '',
-    editScore: '',
     slicedUserScores: [],
   }
 
@@ -37,42 +35,8 @@ class EditScoreModal extends React.Component {
     this.newScoresData();
   }
 
-  editScoreEvent = (e) => {
-    e.preventDefault();
-    const { handleEditClose } = this.props;
-    const { slicedUserScores, editScore } = this.state;
-    console.log('editScore', editScore);
-    // const scoreId = this.state.slicedUserScores.map((userScore) => editScore.find((s) => s.id === userScore.id));
-    const updatedScore = {
-      value: this.state.editScore,
-      date: this.state.editDate,
-      uid: authData.getUid(),
-    };
-    console.log(updatedScore, 'scoreObject');
-    // console.log(scoreId, 'scoreId');
-    // commentsData.updateComment(slicedUserScores.id, updatedScore)
-    //   .then(() => {
-    //     // getCommentsByHoleId(singleHoleId);
-    //   })
-    //   .catch((errorFromSaveComment) => console.error(errorFromSaveComment));
-    handleEditClose();
-  }
-
-  dateChange = (e) => {
-    e.preventDefault();
-    const { editDate } = this.state;
-    this.setState({ editDate: e.target.value });
-    console.log(editDate, 'editscore');
-  }
-
-  scoreChange = (e) => {
-    e.preventDefault();
-    const { editScore } = this.state;
-    this.setState({ editScore: e.target.value });
-  }
-
   render() {
-    const { editShow, handleEditClose, deleteScore } = this.props;
+    const { editShow, handleEditClose, deleteScore, getScoresAndGraph } = this.props;
     const { slicedUserScores } = this.state;
     return (
      <div className="Modal">
@@ -81,7 +45,7 @@ class EditScoreModal extends React.Component {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-       { this.state.slicedUserScores.map((scores) => <ScoreCard key={scores.id} scores={scores} editShow={editShow} handleEditClose={handleEditClose} deleteScore={deleteScore} />)}
+       { this.state.slicedUserScores.map((scores) => <ScoreCard key={scores.id} scores={scores} editShow={editShow} handleEditClose={handleEditClose} deleteScore={deleteScore} getScoresAndGraph={getScoresAndGraph} />)}
         </Modal.Body>
       </Modal>
      </div>

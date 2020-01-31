@@ -23,8 +23,18 @@ const getScoresByUid = (uid) => new Promise((resolve, reject) => {
     });
 });
 
+const getSingleScore = (scoreId) => axios.get(`${baseUrl}/scoreId/${scoreId}.json`);
+
 const saveScores = (newScore) => axios.post(`${baseUrl}/userScores.json`, newScore);
 
 const deleteAScore = (scoreId) => axios.delete(`${baseUrl}/userScores/${scoreId}.json`);
 
-export default { getScoresByUid, saveScores, deleteAScore };
+const updateScore = (scoreId, updatedScore) => axios.put(`${baseUrl}/userScores/${scoreId}.json`, updatedScore);
+
+export default {
+  getScoresByUid,
+  saveScores,
+  deleteAScore,
+  getSingleScore,
+  updateScore,
+};

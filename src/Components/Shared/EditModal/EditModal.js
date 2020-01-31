@@ -24,7 +24,7 @@ class EditModal extends React.Component {
     const updatedComment = {
       message: this.state.editMessage,
       holeId: this.props.singleHoleId,
-      uid: authData.getUid()
+      uid: authData.getUid(),
     };
     commentsData.updateComment(comment.id, updatedComment)
       .then(() => {

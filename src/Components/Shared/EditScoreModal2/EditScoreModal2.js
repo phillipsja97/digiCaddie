@@ -4,6 +4,8 @@ import {
   Button,
   Form,
   Col,
+  InputGroup,
+  FormControl,
 } from 'react-bootstrap';
 import firebase from 'firebase/app';
 import commentsData from '../../../Helpers/data/commentsData';
@@ -13,65 +15,69 @@ import 'firebase/auth';
 import './EditScoreModal2.scss';
 
 class EditScoreModal2 extends React.Component {
+  state = {
+    editDate: '',
+    editScore: '',
+  }
+
   editScoreEvent = (e) => {
     e.preventDefault();
-    const { handleEditClose } = this.props;
-    const { slicedUserScores, editScore } = this.state;
+    const { handleEditClose2, scores, getScoresAndGraph, handleEditClose } = this.props;
+    const { editScore } = this.state;
     console.log('editScore', editScore);
-    // const scoreId = this.state.slicedUserScores.map((userScore) => editScore.find((s) => s.id === userScore.id));
     const updatedScore = {
-      value: this.state.editScore,
+      score: this.state.editScore,
       date: this.state.editDate,
       uid: authData.getUid(),
     };
-    console.log(updatedScore, 'scoreObject');
-    // console.log(scoreId, 'scoreId');
-    // commentsData.updateComment(slicedUserScores.id, updatedScore)
-    //   .then(() => {
-    //     // getCommentsByHoleId(singleHoleId);
-    //   })
-    //   .catch((errorFromSaveComment) => console.error(errorFromSaveComment));
+    scoresData.updateScore(scores.id, updatedScore)
+      .then(() => {
+        getScoresAndGraph();
+      })
+      .catch((errorFromSaveComment) => console.error(errorFromSaveComment));
+    handleEditClose2();
     handleEditClose();
-}
+  }
 
-  render() {
-    const { editShow, handleEditClose } = this.props;
-    const { slicedUserScores } = this.state;
-    console.log('orig', slicedUserScores);
-    const editDates = slicedUserScores.map((scores) => new Object(<option>{scores.date}</option>));
-    console.log(editDates, 'need it');
-    const editScores = slicedUserScores.map((scores) => new Object(<option>{scores.score}</option>));
-    const user = firebase.auth().currentUser;
-    const photo = user.photoURL;
-    return (
-      <Modal show={editShow} onHide={handleEditClose}>
+    editDateChange = (e) => {
+      e.preventDefault();
+      const { editDate } = this.state;
+      this.setState({ editDate: e.target.value });
+      console.log(editDate, 'editscore');
+    }
+
+    editScoreChange = (e) => {
+      e.preventDefault();
+      const { editScore } = this.state;
+      this.setState({ editScore: e.target.value });
+    }
+
+
+    render() {
+      const { editShow2, handleEditClose2 } = this.props;
+      return (
+      <Modal show={editShow2} onHide={handleEditClose2}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Update Your Score</Modal.Title>
         </Modal.Header>
-        <Form.Group controlId="exampleForm.ControlSelect1">
-        <div className="d-flex justify-content-center">
-          <Form.Label>Select which date you want to update:</Form.Label>
-        </div>
-          <div className="d-flex justify-content-center">
-            <Col xs={6}>
-              <Form.Control as="select" onChange={this.dateChange}>
-                {editDates}
-              </Form.Control>
-            </Col>
-          </div>
-        </Form.Group>
-        <Form.Group controlId="exampleForm.ControlSelect1">
-        <div className="d-flex justify-content-center">
-          <Form.Label>Update Your Score:</Form.Label>
-        </div>
-        <div className="d-flex justify-content-center">
+        <div class="form-group d-flex justify-content-center">
+          <label for="date" className="col-sm-2 col-form-label">Date</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" value={this.state.editDate} onChange={this.editDateChange} id="inputPassword"/>
+            </div>
+         </div>
+         <InputGroup className="mb-3">
           <Col xs={6}>
-            <Form.Control type="text" onChange={this.scoreChange}/>
+          <FormControl
+            aria-label="Default"
+            aria-describedby="inputGroup-sizing-default"
+            value={this.state.editScore}
+            onChange={this.editScoreChange}
+          />
           </Col>
-        </div>
-        </Form.Group>
+        </InputGroup>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleEditClose}>
+          <Button variant="secondary" onClick={handleEditClose2}>
             Close
           </Button>
           <Button variant="primary" onClick={this.editScoreEvent}>
@@ -79,8 +85,8 @@ class EditScoreModal2 extends React.Component {
           </Button>
         </Modal.Footer>
       </Modal>
-    );
-  }
+      );
+    }
 }
 
 export default EditScoreModal2;
