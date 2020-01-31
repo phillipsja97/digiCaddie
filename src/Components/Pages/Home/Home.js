@@ -15,7 +15,6 @@ class Home extends React.Component {
     scoresData.getScoresByUid(uid)
       .then((userScores) => {
         this.setState({ userScores });
-        console.log(userScores);
       })
       .catch((errorFromScoresData) => console.error(errorFromScoresData));
   }
@@ -29,7 +28,6 @@ class Home extends React.Component {
     const name = user.displayName;
     const userEmail = user.email;
     const photo = user.photoURL;
-    const { userScores } = this.state;
     return (
       <div className="Home d-flex flex-wrap">
         <div className="container-fluid">

@@ -9,7 +9,6 @@ class EditComment extends React.Component {
 
   componentDidMount() {
     const theCommentId = this.props.match.params.commentId;
-    console.log(theCommentId);
     if (theCommentId) {
       commentsData.getSingleComment(theCommentId)
         .then((request) => {

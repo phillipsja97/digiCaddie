@@ -16,7 +16,6 @@ const getScoresByUid = (uid) => new Promise((resolve, reject) => {
         });
       }
       resolve(userScores);
-      console.log('data', userScores);
     })
     .catch((err) => {
       reject(err);

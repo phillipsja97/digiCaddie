@@ -2,13 +2,10 @@ import React from 'react';
 import {
   Modal,
   Button,
-  Form,
   Col,
   InputGroup,
   FormControl,
 } from 'react-bootstrap';
-import firebase from 'firebase/app';
-import commentsData from '../../../Helpers/data/commentsData';
 import authData from '../../../Helpers/data/authData';
 import scoresData from '../../../Helpers/data/scoresData';
 import 'firebase/auth';
@@ -22,9 +19,12 @@ class EditScoreModal2 extends React.Component {
 
   editScoreEvent = (e) => {
     e.preventDefault();
-    const { handleEditClose2, scores, getScoresAndGraph, handleEditClose } = this.props;
-    const { editScore } = this.state;
-    console.log('editScore', editScore);
+    const {
+      handleEditClose2,
+      scores,
+      getScoresAndGraph,
+      handleEditClose,
+    } = this.props;
     const updatedScore = {
       score: this.state.editScore,
       date: this.state.editDate,
@@ -41,14 +41,11 @@ class EditScoreModal2 extends React.Component {
 
     editDateChange = (e) => {
       e.preventDefault();
-      const { editDate } = this.state;
       this.setState({ editDate: e.target.value });
-      console.log(editDate, 'editscore');
     }
 
     editScoreChange = (e) => {
       e.preventDefault();
-      const { editScore } = this.state;
       this.setState({ editScore: e.target.value });
     }
 
@@ -66,7 +63,9 @@ class EditScoreModal2 extends React.Component {
               <input type="date" class="form-control" value={this.state.editDate} onChange={this.editDateChange} id="inputPassword"/>
             </div>
          </div>
+         <div className="d-flex justify-content-center">
          <InputGroup className="mb-3">
+         <label for="date" className="col-sm-2 col-form-label">Score</label>
           <Col xs={6}>
           <FormControl
             aria-label="Default"
@@ -76,6 +75,7 @@ class EditScoreModal2 extends React.Component {
           />
           </Col>
         </InputGroup>
+        </div>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleEditClose2}>
             Close

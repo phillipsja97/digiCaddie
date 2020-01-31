@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import EditScoreModal2 from '../EditScoreModal2/EditScoreModal2';
 
@@ -8,12 +9,10 @@ class ScoreCard extends React.Component {
 
   handleEditShow2 = (e) => {
     e.preventDefault();
-    const { editShow2 } = this.props;
     this.setState({ editShow2: true });
   }
 
   handleEditClose2 = (e) => {
-    const { editShow2 } = this.props;
     this.setState({ editShow2: false });
   }
 

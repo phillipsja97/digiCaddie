@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import holesData from '../../../Helpers/data/holesData';
 
 class SingleHoleCard extends React.Component {
   state = {

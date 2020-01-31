@@ -17,10 +17,22 @@ class EditModal extends React.Component {
     editMessage: '',
   }
 
+  componentDidMount() {
+    const { comment } = this.props;
+    if (comment.id) {
+      commentsData.getSingleComment(comment.id)
+        .then((request) => {
+          const comments = request.data;
+          this.setState({ editMessage: comments.message });
+        })
+        .catch((errorFromEditMessage) => (errorFromEditMessage));
+    }
+  }
+
   editCommentEvent = (e) => {
     e.preventDefault();
-    const { singleHoleId, theCourseId, handleClose, getCommentsByHoleId } = this.props;
-    const { theCommentId, comment } = this.props;
+    const { singleHoleId, handleClose, getCommentsByHoleId } = this.props;
+    const { comment } = this.props;
     const updatedComment = {
       message: this.state.editMessage,
       holeId: this.props.singleHoleId,
@@ -39,10 +51,8 @@ class EditModal extends React.Component {
     this.setState({ editMessage: e.target.value });
   }
 
-
-
   render() {
-    const { show, handleClose, comment } = this.props;
+    const { show, handleClose } = this.props;
     const user = firebase.auth().currentUser;
     const photo = user.photoURL;
     return (

@@ -36,7 +36,6 @@ class SingleCourse extends React.Component {
   }
 
   getStartingHole = () => {
-    const { allHoles } = this.state;
     const startingHole = this.state.allHoles.find((x) => x.holeNumber === '1');
     this.setState({ startingHole });
     const startingHoleId = this.state.startingHole.id;
@@ -45,7 +44,6 @@ class SingleCourse extends React.Component {
 
   render() {
     const { course } = this.state;
-    const { allHoles } = this.state;
     const { startingHoleId } = this.state;
     const theCourseId = this.props.match.params.courseId;
     return (
