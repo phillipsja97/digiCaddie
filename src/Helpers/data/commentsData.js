@@ -22,6 +22,25 @@ const getCommentsByHoleId = (holeId) => new Promise((resolve, reject) => {
     });
 });
 
+const getAllCommentsByUid = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/comments.json?orderBy="uid"&equalTo="${uid}"`)
+    .then((result) => {
+      const allCommentsObj = result.data;
+      const comments = [];
+      if (allCommentsObj != null) {
+        Object.keys(allCommentsObj).forEach((commentId) => {
+          const newComment = allCommentsObj[commentId];
+          newComment.id = commentId;
+          comments.push(newComment);
+        });
+      }
+      resolve(comments);
+    })
+    .catch((err) => {
+      reject(err);
+    });
+});
+
 const getSingleComment = (commentId) => axios.get(`${baseUrl}/comments/${commentId}.json`);
 
 const deleteAComment = (commentId) => axios.delete(`${baseUrl}/comments/${commentId}.json`);
@@ -36,4 +55,5 @@ export default {
   saveComment,
   getSingleComment,
   updateComment,
+  getAllCommentsByUid,
 };
