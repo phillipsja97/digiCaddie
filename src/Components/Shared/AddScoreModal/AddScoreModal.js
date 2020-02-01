@@ -19,7 +19,7 @@ class AddScoreModal extends React.Component {
 
   saveScoreEvent = (e) => {
     e.preventDefault();
-    const { handleClose, getScoresAndGraph } = this.props;
+    const { handleClose, getScoresAndGraph, getUserScoresForAvg } = this.props;
     const newScore = {
       score: this.state.newScore,
       date: this.state.newScoreDate,
@@ -28,6 +28,8 @@ class AddScoreModal extends React.Component {
     scoresData.saveScores(newScore)
       .then(() => {
         getScoresAndGraph();
+      }).then(() => {
+        getUserScoresForAvg(authData.getUid());
       })
       .catch((errorFromSaveScore) => console.error(errorFromSaveScore));
     handleClose();

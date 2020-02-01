@@ -1,9 +1,14 @@
 #theScoreChart {
-  height: 25em;
+  position: relative;
+  height: 20em;
   width: 40em;
   background-color: white;
 }
 
 .graph {
   background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.scoreChart {
+  height: 21em;
 }

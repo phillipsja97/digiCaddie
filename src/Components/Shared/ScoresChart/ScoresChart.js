@@ -26,6 +26,7 @@ class ScoresChart extends React.Component {
   getScoresAndGraph = () => {
     scoresData.getScoresByUid(authData.getUid())
       .then((userScores) => {
+        this.setState({ userScores });
         const sortedScores = userScores.sort((a, b) => new Date(a.date) - new Date(b.date));
         // eslint-disable-next-line no-new-object
         const scoreId = sortedScores.map((y) => new Object({ date: y.date, value: y.score, id: y.id }));
@@ -47,7 +48,7 @@ class ScoresChart extends React.Component {
         series.name = 'Scores';
         series.columns.template.fill = am4core.color('#00ff00');
         series.connect = false;
-      });
+      })
   }
 
   componentDidMount() {
@@ -63,10 +64,13 @@ class ScoresChart extends React.Component {
   handleEditScoreShow = () => this.setState({ editShow: true, editDelay: true });
 
   deleteScore = (scoreId) => {
+    const { getUserScoresForAvg } = this.props;
     scoresData.deleteAScore(scoreId)
       .then(() => {
         this.getScoresAndGraph();
         this.handleEditClose();
+      }).then(() => {
+        getUserScoresForAvg(authData.getUid());
       })
       .catch((error) => console.error(error));
   }
@@ -74,6 +78,7 @@ class ScoresChart extends React.Component {
   render() {
     const user = firebase.auth().currentUser;
     const name = user.displayName;
+    const { average, getUserScoresForAvg } = this.props;
     return (
       <div className="graph">
         <h1>{name}'s Last 5 Scores</h1>
@@ -81,9 +86,11 @@ class ScoresChart extends React.Component {
           <button className="btn btn-outline-primary" onClick={this.handleNewScoreShow}>Add A New Score</button>
           <button className="btn btn-outline-primary" onClick={this.handleEditScoreShow}>Edit A Score</button>
         </div>
-        <div id="theScoreChart"></div>
-        <AddScoreModal show={this.state.show} handleClose={this.handleClose} slicedUserScores={this.state.slicedUserScores} getScoresAndGraph={this.getScoresAndGraph} />
-        <EditScoreModal editShow={this.state.editShow} handleEditClose={this.handleEditClose} getScoresAndGraph={this.getScoresAndGraph} slicedUserScores={this.state.slicedUserScores} deleteScore={this.deleteScore} />
+        <div className="container-fluid scoreChart">
+          <div id="theScoreChart"></div>
+          <AddScoreModal show={this.state.show} handleClose={this.handleClose} slicedUserScores={this.state.slicedUserScores} getScoresAndGraph={this.getScoresAndGraph} getUserScoresForAvg={getUserScoresForAvg} average={average} />
+          <EditScoreModal editShow={this.state.editShow} handleEditClose={this.handleEditClose} getScoresAndGraph={this.getScoresAndGraph} slicedUserScores={this.state.slicedUserScores} deleteScore={this.deleteScore} getUserScoresForAvg={getUserScoresForAvg} average={average} />
+        </div>
       </div>
     );
   }

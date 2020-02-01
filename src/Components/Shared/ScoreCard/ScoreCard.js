@@ -23,7 +23,7 @@ class ScoreCard extends React.Component {
   }
 
   render() {
-    const { scores, handleEditClose, getScoresAndGraph } = this.props;
+    const { scores, handleEditClose, getScoresAndGraph, getUserScoresForAvg } = this.props;
     return (
       <div className="ScoreCard">
         <div className="card d-flex justify-content-center">
@@ -38,7 +38,7 @@ class ScoreCard extends React.Component {
               </li>
             </ul>
           </div>
-          <EditScoreModal2 scores={scores} editShow2={this.state.editShow2} handleEditClose2={this.handleEditClose2} handleEditClose={handleEditClose} getScoresAndGraph={getScoresAndGraph} />
+          <EditScoreModal2 scores={scores} editShow2={this.state.editShow2} handleEditClose2={this.handleEditClose2} handleEditClose={handleEditClose} getScoresAndGraph={getScoresAndGraph} getUserScoresForAvg={getUserScoresForAvg}/>
       </div>
     );
   }

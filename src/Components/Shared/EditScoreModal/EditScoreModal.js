@@ -25,6 +25,7 @@ class EditScoreModal extends React.Component {
       handleEditClose,
       deleteScore,
       getScoresAndGraph,
+      getUserScoresForAvg,
     } = this.props;
     return (
      <div className="Modal">
@@ -35,7 +36,7 @@ class EditScoreModal extends React.Component {
           </div>
         </Modal.Header>
         <Modal.Body>
-       { this.props.slicedUserScores.map((scores) => <ScoreCard key={scores.id} scores={scores} editShow={editShow} handleEditClose={handleEditClose} deleteScore={deleteScore} getScoresAndGraph={getScoresAndGraph} />)}
+       { this.props.slicedUserScores.map((scores) => <ScoreCard key={scores.id} scores={scores} editShow={editShow} handleEditClose={handleEditClose} deleteScore={deleteScore} getScoresAndGraph={getScoresAndGraph} getUserScoresForAvg={getUserScoresForAvg} />)}
         </Modal.Body>
       </Modal>
      </div>
