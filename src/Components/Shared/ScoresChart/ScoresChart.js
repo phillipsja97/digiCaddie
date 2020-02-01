@@ -64,12 +64,13 @@ class ScoresChart extends React.Component {
   handleEditScoreShow = () => this.setState({ editShow: true, editDelay: true });
 
   deleteScore = (scoreId) => {
-    const { average } = this.props;
+    const { getUserScoresForAvg } = this.props;
     scoresData.deleteAScore(scoreId)
       .then(() => {
         this.getScoresAndGraph();
-        this.setState({ average });
         this.handleEditClose();
+      }).then(() => {
+        getUserScoresForAvg(authData.getUid());
       })
       .catch((error) => console.error(error));
   }

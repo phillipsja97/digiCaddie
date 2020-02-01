@@ -24,7 +24,7 @@ class EditScoreModal2 extends React.Component {
       scores,
       getScoresAndGraph,
       handleEditClose,
-      average,
+      getUserScoresForAvg,
     } = this.props;
     const updatedScore = {
       score: this.state.editScore,
@@ -34,7 +34,8 @@ class EditScoreModal2 extends React.Component {
     scoresData.updateScore(scores.id, updatedScore)
       .then(() => {
         getScoresAndGraph();
-        this.setState({ average });
+      }).then(() => {
+        getUserScoresForAvg(authData.getUid());
       })
       .catch((errorFromSaveComment) => console.error(errorFromSaveComment));
     handleEditClose2();
