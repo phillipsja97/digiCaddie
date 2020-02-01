@@ -18,6 +18,7 @@ class AddModal extends React.Component {
 
   saveCommentEvent = (e) => {
     e.preventDefault();
+    const user = firebase.auth().currentUser;
     const {
       singleHoleId,
       getCommentsByHoleId,
@@ -27,6 +28,8 @@ class AddModal extends React.Component {
       message: this.state.newMessage,
       holeId: singleHoleId,
       uid: authData.getUid(),
+      avatarUrl: user.photoURL,
+      name: user.displayName,
     };
     commentsData.saveComment(newComment)
       .then(() => {

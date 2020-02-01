@@ -31,12 +31,15 @@ class EditModal extends React.Component {
 
   editCommentEvent = (e) => {
     e.preventDefault();
+    const user = firebase.auth().currentUser;
     const { singleHoleId, handleClose, getCommentsByHoleId } = this.props;
     const { comment } = this.props;
     const updatedComment = {
       message: this.state.editMessage,
       holeId: this.props.singleHoleId,
       uid: authData.getUid(),
+      avatarUrl: user.photoURL,
+      name: user.displayName,
     };
     commentsData.updateComment(comment.id, updatedComment)
       .then(() => {
