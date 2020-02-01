@@ -67,8 +67,8 @@ class SingleCourse extends React.Component {
                         </Link>
                       </div>
             </div>
-          <div className="container-fluid d-inline-flex flex-wrap detailsSection">
-            <div className="col-6">
+          <div className="container-fluid row d-inline-flex flex-wrap detailsSection">
+            <div className="col-6 container">
               <div className="card">
                 <img src={course.mapImage} className="card-img-top courseMapImage" alt={course.name} />
                   <div className="card-body">
@@ -111,6 +111,9 @@ class SingleCourse extends React.Component {
                       </div>
               </div>
           </div>
+          <div className="container">
+            <br/>
+            </div>
       </div>
     );
   }
