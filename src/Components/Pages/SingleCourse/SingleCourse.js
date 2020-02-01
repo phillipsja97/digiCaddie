@@ -53,7 +53,7 @@ class SingleCourse extends React.Component {
             <h1 className="display-4">{course.name}</h1>
               <p className="lead">{course.description}</p>
           </div>
-            <div className="card offset-5 detailsSection">
+            <div className="card offset-5 headerDetailsSection">
                     <div className="card-header">Course Details</div>
                       <ul className="list-group list-group-horizontal-xl">
                         <li className="list-group-item">Par: {course.par}</li>
