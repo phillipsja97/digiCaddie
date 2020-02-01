@@ -17,7 +17,7 @@ class Home extends React.Component {
       .then((average) => {
         const scores = average.map((x) => Number(x.score));
         const total = scores.reduce((a, b) => a + b, 0);
-        const avg = total / average.length;
+        const avg = Math.round(total / average.length);
         this.setState({ average: avg });
       })
       .catch((errorFromScoresData) => console.error(errorFromScoresData));
