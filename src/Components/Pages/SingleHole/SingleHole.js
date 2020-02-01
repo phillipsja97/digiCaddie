@@ -126,6 +126,9 @@ handleNewCommentShow = () => this.setState({ show: true });
           <div className="commentCard">
            { this.state.comments.map((comment) => <SingleCommentCard key={comment.id} comment={comment} deleteComment={this.deleteComment} theCourseId={theCourseId} singleHoleId={singleHoleId} authed={this.authed} getCommentsByHoleId={this.getCommentsByHoleId} show={this.state.show} handleClose={this.handleClose} />)}
           </div>
+          <div className="container">
+            <br/>
+          </div>
       </div>
     );
   }

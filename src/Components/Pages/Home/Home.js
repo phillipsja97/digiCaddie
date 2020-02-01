@@ -46,13 +46,24 @@ class Home extends React.Component {
                   <h1 className="card-title">{name}</h1>
                   <p className="card-text">{userEmail}</p>
                 </div>
-                 <h1>Average Score: {this.state.average}</h1>
+                <div className="container-fluid d-flex justify-content-center">
+                  <div className="card-header userDetailsSection">
+                        <h5>User Stats:</h5>
+                        <ul className="list-group list-group-xl">
+                          <li className="list-group-item">Average Score: {this.state.average}</li>
+                          <li className="list-group-item">Total Posts</li>
+                        </ul>
+                  </div>
+                </div>
               </div>
             </div>
         </div>
       </div>
       <div className="chart d-flex justify-content-center">
         <ScoresChart userScores={this.state.userScores} getUserScoresForAvg={this.getUserScoresForAvg} average={this.state.average} />
+      </div>
+      <div className="container">
+        <br/>
       </div>
       </div>
       </div>

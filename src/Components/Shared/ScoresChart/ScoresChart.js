@@ -48,7 +48,7 @@ class ScoresChart extends React.Component {
         series.name = 'Scores';
         series.columns.template.fill = am4core.color('#00ff00');
         series.connect = false;
-      });
+      })
   }
 
   componentDidMount() {
@@ -85,9 +85,11 @@ class ScoresChart extends React.Component {
           <button className="btn btn-outline-primary" onClick={this.handleNewScoreShow}>Add A New Score</button>
           <button className="btn btn-outline-primary" onClick={this.handleEditScoreShow}>Edit A Score</button>
         </div>
-        <div id="theScoreChart"></div>
-        <AddScoreModal show={this.state.show} handleClose={this.handleClose} slicedUserScores={this.state.slicedUserScores} getScoresAndGraph={this.getScoresAndGraph} getUserScoresForAvg={getUserScoresForAvg} average={average} />
-        <EditScoreModal editShow={this.state.editShow} handleEditClose={this.handleEditClose} getScoresAndGraph={this.getScoresAndGraph} slicedUserScores={this.state.slicedUserScores} deleteScore={this.deleteScore} getUserScoresForAvg={getUserScoresForAvg} average={average} />
+        <div className="container-fluid scoreChart">
+          <div id="theScoreChart"></div>
+          <AddScoreModal show={this.state.show} handleClose={this.handleClose} slicedUserScores={this.state.slicedUserScores} getScoresAndGraph={this.getScoresAndGraph} getUserScoresForAvg={getUserScoresForAvg} average={average} />
+          <EditScoreModal editShow={this.state.editShow} handleEditClose={this.handleEditClose} getScoresAndGraph={this.getScoresAndGraph} slicedUserScores={this.state.slicedUserScores} deleteScore={this.deleteScore} getUserScoresForAvg={getUserScoresForAvg} average={average} />
+        </div>
       </div>
     );
   }
