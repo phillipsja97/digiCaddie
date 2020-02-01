@@ -87,9 +87,10 @@ class ScoresChart extends React.Component {
           <button className="btn btn-outline-primary" onClick={this.handleEditScoreShow}>Edit A Score</button>
         </div>
         <div className="container-fluid scoreChart">
-          <div id="theScoreChart"></div>
-          <AddScoreModal show={this.state.show} handleClose={this.handleClose} slicedUserScores={this.state.slicedUserScores} getScoresAndGraph={this.getScoresAndGraph} getUserScoresForAvg={getUserScoresForAvg} average={average} />
-          <EditScoreModal editShow={this.state.editShow} handleEditClose={this.handleEditClose} getScoresAndGraph={this.getScoresAndGraph} slicedUserScores={this.state.slicedUserScores} deleteScore={this.deleteScore} getUserScoresForAvg={getUserScoresForAvg} average={average} />
+          <div id="theScoreChart">
+            <AddScoreModal show={this.state.show} handleClose={this.handleClose} slicedUserScores={this.state.slicedUserScores} getScoresAndGraph={this.getScoresAndGraph} getUserScoresForAvg={getUserScoresForAvg} average={average} />
+            <EditScoreModal editShow={this.state.editShow} handleEditClose={this.handleEditClose} getScoresAndGraph={this.getScoresAndGraph} slicedUserScores={this.state.slicedUserScores} deleteScore={this.deleteScore} getUserScoresForAvg={getUserScoresForAvg} average={average} />
+          </div>
         </div>
       </div>
     );
