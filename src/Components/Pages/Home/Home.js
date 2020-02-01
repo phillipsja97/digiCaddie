@@ -9,18 +9,22 @@ import './Home.scss';
 class Home extends React.Component {
   state = {
     userScores: [],
+    average: [],
   }
 
-  getUserScores = (uid) => {
+  getUserScoresForAvg = (uid) => {
     scoresData.getScoresByUid(uid)
-      .then((userScores) => {
-        this.setState({ userScores });
+      .then((average) => {
+        const scores = average.map((x) => Number(x.score));
+        const total = scores.reduce((a, b) => a + b, 0);
+        const avg = total / average.length;
+        this.setState({ average: avg });
       })
       .catch((errorFromScoresData) => console.error(errorFromScoresData));
   }
 
   componentDidMount() {
-    this.getUserScores((authData.getUid()));
+    this.getUserScoresForAvg(authData.getUid());
   }
 
   render() {
@@ -42,12 +46,13 @@ class Home extends React.Component {
                   <h1 className="card-title">{name}</h1>
                   <p className="card-text">{userEmail}</p>
                 </div>
+                 <h1>Average Score: {this.state.average}</h1>
               </div>
             </div>
         </div>
       </div>
       <div className="chart d-flex justify-content-center">
-        <ScoresChart userScores={this.state.userScores} />
+        <ScoresChart userScores={this.state.userScores} getUserScoresForAvg={this.getUserScoresForAvg} average={this.state.average} />
       </div>
       </div>
       </div>
