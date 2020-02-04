@@ -97,7 +97,7 @@ handleNewCommentShow = () => this.setState({ show: true });
     const singleHoleId = this.props.match.params.holeId;
     return (
       <div className="SingleHole">
-                <div className="jumbotron jumbotron-fluid">
+                <div className="jumbotron jumbotron-fluid singleHoleJumbotron">
                   <div className="d-flex justify-content-center pageNation">
                     <nav aria-label="Page navigation example">
                       <ul className="pagination pagination-lg">
@@ -114,7 +114,8 @@ handleNewCommentShow = () => this.setState({ show: true });
             <Image src={singleHole.holeImageUrl} fluid className="holeImage" />
             </div>
             <div className="col-6 holeDetails">
-              <div className="card">
+            <div><br></br><br></br><br></br><br></br><br></br><br></br></div>
+              <div className="card holeDetailsCard">
                 <div className="card-header">Hole Details:</div>
                       <ul className="list-group list-group-xl">
                         <li className="list-group-item">Par: {singleHole.par}</li>
@@ -126,7 +127,7 @@ handleNewCommentShow = () => this.setState({ show: true });
           </div>
           <div className="jumbotron jumbotron-fluid caddieJumbotron">
             <h1>Caddie Tips:</h1>
-          <button className="btn btn-outline-primary" onClick={this.handleNewCommentShow}>
+          <button className="btn btn-dark addCommentButton" onClick={this.handleNewCommentShow}>
               Add Comment
           </button>
           </div>

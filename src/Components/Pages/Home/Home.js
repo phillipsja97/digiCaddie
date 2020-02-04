@@ -53,8 +53,13 @@ class Home extends React.Component {
     const userEmail = user.email;
     const photo = user.photoURL;
     return (
-      <div className="Home d-flex flex-wrap">
-        <div className="container-fluid">
+      <div className="Home">
+        <div class="jumbotron jumbotron-fluid homeJumbo">
+          <div class="container">
+            <h1 class="display-4">{name} Profile</h1>
+          </div>
+        </div>
+        <div className="container-fluid theProfile">
           <div className="profileCardSection d-flex justify-content-center">
         <div className="card mb-3 profileCard">
           <div className="row no-gutters">
@@ -63,8 +68,7 @@ class Home extends React.Component {
             </div>
               <div className="col-md-8">
                 <div className="card-body">
-                  <h1 className="card-title">{name}</h1>
-                  <p className="card-text">{userEmail}</p>
+                  <p className="card-text cardTextBody">Email: {userEmail}</p>
                 </div>
                 <div className="container-fluid d-flex justify-content-center">
                   <div className="card-header userDetailsSection">
@@ -81,9 +85,6 @@ class Home extends React.Component {
       </div>
       <div className="chart d-flex justify-content-center">
         <ScoresChart userScores={this.state.userScores} getUserScoresForAvg={this.getUserScoresForAvg} average={this.state.average} />
-      </div>
-      <div className="container">
-        <br/>
       </div>
       </div>
       </div>

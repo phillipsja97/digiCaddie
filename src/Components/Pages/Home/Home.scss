@@ -1,6 +1,6 @@
 .Home {
-  padding-top: 3em;
-  height: 100vh;
+  padding-bottom: 3em;
+  height: 100%;
   background-image: url(http://www.hdwallpaperspulse.com/wp-content/uploads/2016/06/20/awesome-golf-image-hd.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -10,6 +10,12 @@
 .profileCard {
   width: 75%;
   height: 45%;
+  border-style: solid;
+  border-color: black;
+}
+
+.cardTextBody {
+  padding-top: 3em;
 }
 
 .profileImage {
@@ -20,3 +26,12 @@
   width: 15em;
 }
 
+.homeJumbo {
+  padding: 30px !important;
+  border-bottom-style: solid;
+  border-color: black;
+}
+
+.chart {
+  margin-top: 1em;
+}

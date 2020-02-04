@@ -5,8 +5,6 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 // eslint-disable-next-line camelcase
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
-import firebase from 'firebase/app';
-import 'firebase/auth';
 import authData from '../../../Helpers/data/authData';
 import scoreShape from '../../../Helpers/propz/scoreShape';
 import scoresData from '../../../Helpers/data/scoresData';
@@ -89,8 +87,6 @@ class ScoresChart extends React.Component {
   }
 
   render() {
-    const user = firebase.auth().currentUser;
-    const name = user.displayName;
     const { average, getUserScoresForAvg } = this.props;
     return (
       <div className="graph">
