@@ -7,9 +7,22 @@
   justify-content: center;
 }
 
+.cardBody {
+  margin-top: 1em;
+}
+
 .commentImage {
   height: 5em;
   width: 5em;
+}
+
+.commentName {
+  margin-top: 1.9em;
+  margin-left: 1em;
+}
+
+.cardTitle {
+  margin-right: 2px !important;
 }
 
 .exitButton {
