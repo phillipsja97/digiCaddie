@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './SingleCourseCard.scss';
+import courseShape from '../../../Helpers/propz/courseShape';
 
 class SingleCourseCard extends React.Component {
+  static propTypes = {
+    course: courseShape.courseShape,
+  }
+
   render() {
     const { course } = this.props;
     return (

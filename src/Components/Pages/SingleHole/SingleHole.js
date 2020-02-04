@@ -8,10 +8,18 @@ import './SingleHole.scss';
 import commentsData from '../../../Helpers/data/commentsData';
 import SingleCommentCard from '../../Shared/SingleCommentCard/SingleCommentCard';
 import AddModal from '../../Shared/AddModal/AddModal';
+import courseShape from '../../../Helpers/propz/courseShape';
+import holeShape from '../../../Helpers/propz/holeShape';
+import commentShape from '../../../Helpers/propz/commentShape';
 
 class SingleHole extends React.Component {
+  static propTypes = {
+    course: courseShape.courseShape,
+    hole: holeShape.holeShape,
+    comments: commentShape.commentShape,
+  }
+
   state = {
-    authed: true,
     course: [],
     holes: [],
     hole: [],
