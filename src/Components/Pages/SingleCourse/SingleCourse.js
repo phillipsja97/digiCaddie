@@ -55,7 +55,7 @@ class SingleCourse extends React.Component {
     const theCourseId = this.props.match.params.courseId;
     return (
       <div className="SingleCourse">
-        <div className="jumbotron jumbotron-fluid">
+        <div className="jumbotron jumbotron-fluid singleCourseJumbotron">
           <div className="container">
             <h1 className="display-4">{course.name}</h1>
               <p className="lead">{course.description}</p>
@@ -69,7 +69,7 @@ class SingleCourse extends React.Component {
                       </ul>
                     </div>
                       <div className="singleHoleButton">
-                        <Link className="btn btn-outline-primary" to={`/course/${theCourseId}/${startingHoleId}`}>Hole By Hole
+                        <Link className="btn btn-dark" to={`/course/${theCourseId}/${startingHoleId}`}>Hole By Hole
                               Caddie Tips
                         </Link>
                       </div>

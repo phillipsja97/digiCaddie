@@ -6,10 +6,13 @@
   background-color: white;
   height: 75vh;
   background-color: rgba(255, 255, 255, 0.5) !important;
+  border-style: solid;
+  border-color: black;
 }
 
 .courses {
-  height: 100vh;
+  height: 100%;
+  padding-bottom: 3em;
   background-image: url(http://www.hdwallpaperspulse.com/wp-content/uploads/2016/06/20/awesome-golf-image-hd.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -18,4 +21,10 @@
 
 .searchBar {
   margin-top: 1em;
+}
+
+.courseJumbo {
+  padding: 30px !important;
+  border-bottom-style: solid;
+  border-color: black;
 }

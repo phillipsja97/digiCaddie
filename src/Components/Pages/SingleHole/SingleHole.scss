@@ -10,10 +10,25 @@
   background-attachment: fixed;
 }
 
+.singleHoleJumbotron {
+  border-bottom-style: solid;
+  border-color: black;
+}
+
+.holeDetailsCard {
+  margin-right: 13em;
+}
+
 .commentCard {
   margin-top: 2em;
 }
 
 .caddieJumbotron {
   margin-top: 2em;
+  border-style: solid;
+  border-color: black;
+}
+
+.addCommentButton {
+  margin-top: 1em;
 }

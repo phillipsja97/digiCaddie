@@ -46,10 +46,14 @@ class Courses extends React.Component {
   render() {
     return (
       <div className="courses">
-        <h1 className="courseTitle">Find Courses</h1>
+        <div class="jumbotron jumbotron-fluid courseJumbo">
+          <div class="container">
+            <h1 class="display-4">Find Courses</h1>
+          </div>
+        </div>
           <div className="container courseContainer">
             <div className="d-flex justify-content-center searchBar">
-              <InputGroup className="mb-3 col-6">
+              <InputGroup className="mb-3 col-6 searchBar">
                 <FormControl
                   placeholder="search by course name..."
                   aria-label="Recipient's username"

@@ -44,10 +44,12 @@ handleShow = () => this.setState({ show: true });
     return (
         <div className="SingleCommentCard">
          <div className="card col-6 pl-0 pr-0 singleCard">
-         { (authData.getUid() === comment.uid) ? <div className="exitButton mx-0">
-                                                <button className="btn btn-danger col-1" onClick={this.deleteCommentEvent}>X</button>
-                                                </div>
-           : <div></div>
+         { (authData.getUid() === comment.uid) ? <div className="exitButton mr-0">
+                                                    <button type="button" className="close" onClick={this.deleteCommentEvent}>
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                 </div>
+           : <div className="exitButton mx-0"><br></br></div>
           }
           <div className="row no-gutters">
             <div className="col-md-4">
@@ -63,7 +65,7 @@ handleShow = () => this.setState({ show: true });
             <div className="d-inline-flex actionList mr-2">
               <p className="card-text"><small className="text-muted"></small></p>
             <div className="editButton">
-            { (authData.getUid() === comment.uid) ? <button className="btn btn-outline-primary" id={comment.id} onClick={this.handleShow}>
+            { (authData.getUid() === comment.uid) ? <button className="btn btn-outline-dark editCommentButton" id={comment.id} onClick={this.handleShow}>
                                     Edit Comment
                                   </button>
               : <div></div>
