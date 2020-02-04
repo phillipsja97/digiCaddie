@@ -48,13 +48,19 @@ class ScoresChart extends React.Component {
         dateAxis.title.text = 'Dates';
         const valueAxis1 = chart.yAxes.push(new am4charts.ValueAxis());
         valueAxis1.title.text = 'Scores';
-        const series = chart.series.push(new am4charts.ColumnSeries());
-        series.columns.template.width = am4core.percent(30);
+        const series = chart.series.push(new am4charts.LineSeries());
+        // series.columns.template.width = am4core.percent(30);
         series.dataFields.valueY = 'value';
         series.dataFields.dateX = 'date';
         series.name = 'Scores';
-        series.columns.template.fill = am4core.color('#00ff00');
-        series.connect = false;
+        series.stroke = am4core.color('#70f869');
+        series.tensionX = 0.8;
+        series.strokeWidth = 3;
+        series.tooltipText = '{name}\n[bold font-size: 20]{valueY}[/]';
+        const bullet = series.bullets.push(new am4charts.CircleBullet());
+        bullet.circle.fill = am4core.color('#70f869');
+        // series.columns.template.fill = am4core.color('#00ff00');
+        series.connect = true;
       });
   }
 
@@ -88,10 +94,14 @@ class ScoresChart extends React.Component {
     const { average, getUserScoresForAvg } = this.props;
     return (
       <div className="graph">
-        <h1>{name}'s Last 5 Scores</h1>
-        <div className="buttons">
-          <button className="btn btn-outline-primary" onClick={this.handleNewScoreShow}>Add A New Score</button>
-          <button className="btn btn-outline-primary" onClick={this.handleEditScoreShow}>Edit A Score</button>
+        <h1>Last 5 Scores</h1>
+        <div className="d-inline-flex buttons">
+            <div className="addButton">
+              <button className="btn btn-dark" onClick={this.handleNewScoreShow}>Add A New Score</button>
+            </div>
+            <div className="editButton">
+               <button className="btn btn-dark" onClick={this.handleEditScoreShow}>Edit A Score</button>
+            </div>
         </div>
         <div className="container-fluid scoreChart">
           <div id="theScoreChart">
