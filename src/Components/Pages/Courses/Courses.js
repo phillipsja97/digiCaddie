@@ -1,11 +1,18 @@
 /* eslint-disable max-len */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import coursesData from '../../../Helpers/data/coursesData';
 import SingleCourseCard from '../../Shared/SingleCourseCard/SingleCourseCard';
+import courseShape from '../../../Helpers/propz/courseShape';
 import './Courses.scss';
 
 class Courses extends React.Component {
+  static propTypes = {
+    courses: courseShape.courseShape,
+    filterCourses: PropTypes.func,
+  }
+
   state = {
     courses: [],
     filteredCourses: [],

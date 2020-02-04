@@ -1,15 +1,24 @@
 /* eslint-disable max-len */
 import React from 'react';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-// import * as admin from 'firebase-admin';
+import PropTypes from 'prop-types';
 import Image from 'react-bootstrap/image';
+import commentShape from '../../../Helpers/propz/commentShape';
 import EditModal from '../EditModal/EditModal';
 import authData from '../../../Helpers/data/authData';
 
 import './SingleCommentCard.scss';
 
 class SingleCommentCard extends React.Component {
+  static propTypes = {
+    show: PropTypes.bool,
+    comment: commentShape.commentShape,
+    deleteComment: PropTypes.func,
+    theCourseId: PropTypes.string,
+    singleHoleId: PropTypes.string,
+    getCommentsByHoleId: PropTypes.func,
+    handleClose: PropTypes.func,
+  }
+
   state = {
     show: false,
     comment: [],
@@ -32,18 +41,13 @@ handleShow = () => this.setState({ show: true });
       comment,
       getCommentsByHoleId,
     } = this.props;
-    // const admin = require('firebase-admin');
-    const user = firebase.auth().currentUser
-    // console.log(user);
-    const name = user.displayName;
-    const photo = user.photoURL;
     return (
         <div className="SingleCommentCard">
          <div className="card col-6 pl-0 pr-0 singleCard">
          { (authData.getUid() === comment.uid) ? <div className="exitButton mx-0">
                                                 <button className="btn btn-danger col-1" onClick={this.deleteCommentEvent}>X</button>
                                                 </div>
-                                                : <div></div>
+           : <div></div>
           }
           <div className="row no-gutters">
             <div className="col-md-4">
@@ -61,8 +65,8 @@ handleShow = () => this.setState({ show: true });
             <div className="editButton">
             { (authData.getUid() === comment.uid) ? <button className="btn btn-outline-primary" id={comment.id} onClick={this.handleShow}>
                                     Edit Comment
-                                  </button> 
-                                  : <div></div>
+                                  </button>
+              : <div></div>
             }
             </div>
             </div>

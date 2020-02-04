@@ -1,7 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import holeShape from '../../../Helpers/propz/holeShape';
 
 class SingleHoleCard extends React.Component {
+  static propTypes = {
+    hole: holeShape.holeShape,
+    theCourseId: PropTypes.string,
+  }
+
   state = {
     hole: [],
   }

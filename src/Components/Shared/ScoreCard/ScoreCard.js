@@ -1,8 +1,16 @@
 /* eslint-disable max-len */
 import React from 'react';
+import PropTypes from 'prop-types';
 import EditScoreModal2 from '../EditScoreModal2/EditScoreModal2';
 
 class ScoreCard extends React.Component {
+  static propTypes = {
+    deleteScore: PropTypes.func,
+    handleEditClose: PropTypes.func,
+    getScoresAndGraph: PropTypes.func,
+    getUserScoresForAvg: PropTypes.func,
+  }
+
   state = {
     editShow2: false,
   }
@@ -23,7 +31,12 @@ class ScoreCard extends React.Component {
   }
 
   render() {
-    const { scores, handleEditClose, getScoresAndGraph, getUserScoresForAvg } = this.props;
+    const {
+      scores,
+      handleEditClose,
+      getScoresAndGraph,
+      getUserScoresForAvg,
+    } = this.props;
     return (
       <div className="ScoreCard">
         <div className="card d-flex justify-content-center">

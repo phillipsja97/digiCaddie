@@ -1,13 +1,21 @@
+/* eslint-disable max-len */
 import React from 'react';
 import firebase from 'firebase/app';
 import ScoresChart from '../../Shared/ScoresChart/ScoresChart';
 import authData from '../../../Helpers/data/authData';
 import scoresData from '../../../Helpers/data/scoresData';
 import commentsData from '../../../Helpers/data/commentsData';
+import scoreShape from '../../../Helpers/propz/scoreShape';
 import 'firebase/auth';
 import './Home.scss';
+import commentShape from '../../../Helpers/propz/commentShape';
 
 class Home extends React.Component {
+  static propTypes = {
+    average: scoreShape.scoreShape,
+    totalComments: commentShape.commentShape,
+  }
+
   state = {
     userScores: [],
     average: [],
@@ -29,7 +37,7 @@ class Home extends React.Component {
     commentsData.getAllCommentsByUid(uid)
       .then((totalComments) => {
         const comments = totalComments.length;
-        this.setState({ totalComments: comments })
+        this.setState({ totalComments: comments });
       })
       .catch((errorFromTotalComments) => console.error(errorFromTotalComments));
   }

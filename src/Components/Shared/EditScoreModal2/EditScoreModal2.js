@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Modal,
   Button,
@@ -12,6 +13,14 @@ import 'firebase/auth';
 import './EditScoreModal2.scss';
 
 class EditScoreModal2 extends React.Component {
+  static propTypes = {
+    editDate: PropTypes.string,
+    editScore: PropTypes.string,
+    handleEditClose2: PropTypes.func,
+    getScoresAndGraph: PropTypes.func,
+    getUserScoresForAvg: PropTypes.func,
+  }
+
   state = {
     editDate: '',
     editScore: '',
@@ -60,15 +69,15 @@ class EditScoreModal2 extends React.Component {
         <Modal.Header closeButton>
           <Modal.Title>Update Your Score</Modal.Title>
         </Modal.Header>
-        <div class="form-group d-flex justify-content-center">
-          <label for="date" className="col-sm-2 col-form-label">Date</label>
-            <div class="col-sm-10">
-              <input type="date" class="form-control" value={this.state.editDate} onChange={this.editDateChange} id="inputPassword"/>
+        <div className="form-group d-flex justify-content-center">
+          <label className="col-sm-2 col-form-label">Date</label>
+            <div className="col-sm-10">
+              <input type="date" className="form-control" value={this.state.editDate} onChange={this.editDateChange} id="inputPassword"/>
             </div>
          </div>
          <div className="d-flex justify-content-center">
          <InputGroup className="mb-3">
-         <label for="date" className="col-sm-2 col-form-label">Score</label>
+         <label className="col-sm-2 col-form-label">Score</label>
           <Col xs={6}>
           <FormControl
             aria-label="Default"

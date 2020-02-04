@@ -1,11 +1,20 @@
 /* eslint-disable max-len */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
 import 'firebase/auth';
 import ScoreCard from '../ScoreCard/ScoreCard';
 import './EditScoreModal.scss';
 
 class EditScoreModal extends React.Component {
+  static propTypes = {
+    editShow: PropTypes.bool,
+    handleEditClose: PropTypes.func,
+    getScoresAndGraph: PropTypes.func,
+    deleteScore: PropTypes.func,
+    getUserScoresForAvg: PropTypes.func,
+  }
+
   state = {
     slicedUserScores: [],
   }

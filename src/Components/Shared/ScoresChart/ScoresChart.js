@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 // eslint-disable-next-line camelcase
@@ -7,6 +8,7 @@ import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import authData from '../../../Helpers/data/authData';
+import scoreShape from '../../../Helpers/propz/scoreShape';
 import scoresData from '../../../Helpers/data/scoresData';
 import AddScoreModal from '../AddScoreModal/AddScoreModal';
 import EditScoreModal from '../EditScoreModal/EditScoreModal';
@@ -15,12 +17,17 @@ import './ScoresChart.scss';
 am4core.useTheme(am4themes_animated);
 
 class ScoresChart extends React.Component {
+  static propTypes = {
+    show: PropTypes.bool,
+    slicedUserScores: scoreShape.scoreShape,
+    editShape: PropTypes.bool,
+  }
+
   state = {
     userScores: [],
     show: false,
     editShow: false,
     slicedUserScores: [],
-    editDelay: false,
   }
 
   getScoresAndGraph = () => {
@@ -48,7 +55,7 @@ class ScoresChart extends React.Component {
         series.name = 'Scores';
         series.columns.template.fill = am4core.color('#00ff00');
         series.connect = false;
-      })
+      });
   }
 
   componentDidMount() {
@@ -61,7 +68,7 @@ class ScoresChart extends React.Component {
 
   handleEditClose = () => this.setState({ editShow: false });
 
-  handleEditScoreShow = () => this.setState({ editShow: true, editDelay: true });
+  handleEditScoreShow = () => this.setState({ editShow: true });
 
   deleteScore = (scoreId) => {
     const { getUserScoresForAvg } = this.props;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Modal,
   InputGroup,
@@ -8,11 +9,21 @@ import {
 } from 'react-bootstrap';
 import firebase from 'firebase/app';
 import commentsData from '../../../Helpers/data/commentsData';
+import commentShape from '../../../Helpers/propz/commentShape';
 import authData from '../../../Helpers/data/authData';
 import 'firebase/auth';
 import './EditModal.scss';
 
 class EditModal extends React.Component {
+  static propTypes = {
+    editMessage: PropTypes.string,
+    comment: commentShape.commentShape,
+    handleClose: PropTypes.func,
+    singleHoleId: PropTypes.string,
+    theCourseId: PropTypes.string,
+    getCommentsByHoleId: PropTypes.func,
+  }
+
   state = {
     editMessage: '',
   }

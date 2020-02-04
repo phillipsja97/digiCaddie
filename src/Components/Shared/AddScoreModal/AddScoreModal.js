@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Modal,
   InputGroup,
@@ -12,6 +13,15 @@ import authData from '../../../Helpers/data/authData';
 import scoresData from '../../../Helpers/data/scoresData';
 
 class AddScoreModal extends React.Component {
+  static propTypes = {
+    newScore: PropTypes.string,
+    newScoreDate: PropTypes.string,
+    show: PropTypes.bool,
+    handleClose: PropTypes.func,
+    getScoresAndGraph: PropTypes.func,
+    getUserScoresForAvg: PropTypes.func,
+  }
+
   state = {
     newScore: '',
     newScoreDate: '',
@@ -73,10 +83,10 @@ class AddScoreModal extends React.Component {
         </InputGroup>
         </div>
         </div>
-        <div class="form-group d-flex justify-content-center">
-          <label for="date" className="col-sm-2 col-form-label">Date</label>
-            <div class="col-sm-10">
-              <input type="date" class="form-control" value={this.state.newScoreDate} onChange={this.dateChange} id="inputPassword"/>
+        <div className="form-group d-flex justify-content-center">
+          <label className="col-sm-2 col-form-label">Date</label>
+            <div className="col-sm-10">
+              <input type="date" className="form-control" value={this.state.newScoreDate} onChange={this.dateChange} id="inputPassword"/>
             </div>
          </div>
         <Modal.Footer>

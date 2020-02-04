@@ -1,11 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap';
+import courseShape from '../../../Helpers/propz/courseShape';
+import holeShape from '../../../Helpers/propz/holeShape';
 import coursesData from '../../../Helpers/data/coursesData';
 import holesData from '../../../Helpers/data/holesData';
 import './SingleCourse.scss';
 
 class SingleCourse extends React.Component {
+  static propTypes = {
+    course: courseShape.courseShape,
+    allHoles: holeShape.holeShape,
+  }
+
   state = {
     course: [],
     allHoles: [],
