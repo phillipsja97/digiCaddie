@@ -52,12 +52,16 @@ handleShow = () => this.setState({ show: true });
            : <div className="exitButton mx-0"><br></br></div>
           }
           <div className="row no-gutters">
-            <div className="col-md-4">
-            <Image src={comment.avatarUrl} roundedCircle className="commentImage" />
+            <div className="col-md-4 d-inline-flex">
+              <div className="ml-2 commentImageSection">
+                <Image src={comment.avatarUrl} roundedCircle className="commentImage" />
+              </div>
+              <div className="commentName">
+                <h5 className="card-title cardTitle">{comment.name}</h5>
+              </div>
             </div>
               <div className="d-flex justify-content-start">
-                <div className="card-body">
-                  <h5 className="card-title">{comment.name}</h5>
+                <div className="card-body cardBody">
                   <p className="card-text">{comment.message}</p>
                 </div>
               </div>
