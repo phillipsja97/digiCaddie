@@ -34,6 +34,10 @@
 
 * The user also has the ability to update one of the last 5 scores, or delete one of the last 5 scores. By clicking on the "Edit A Score" button another [React Bootstrap](https://react-bootstrap.github.io/) modal will pop up that has the last 5 scores and a button either update or delete the score.
 
-![Edit/Delete Score](https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/EditingScore.PNG?raw=true)
+![Edit or Delete Score](https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/EditingScore.PNG?raw=true)
+
+* If the user wants to find new courses in their area to look at before they play a round, they can go to the Find Courses page which will list out the courses and some quick information about the course. The user can also search by course name to pull up a single course.
+
+![Find Courses](https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/FindCourses.PNG?raw=true)
 
 
