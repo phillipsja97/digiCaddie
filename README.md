@@ -66,5 +66,5 @@
 
 ## Live Demo of Digi-Caddie
 
-* Click [Here](digicaddie-capstone.firebaseapp.com) to go to the [Firebase](https://firebase.google.com/) Hosted version of the application.
+* Click [Here](https://digicaddie-capstone.web.app/auth) to go to the [Firebase](https://firebase.google.com/) Hosted version of the application.
 
