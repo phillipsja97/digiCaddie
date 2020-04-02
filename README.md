@@ -40,4 +40,31 @@
 
 ![Find Courses](https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/FindCourses.PNG?raw=true)
 
+![Search Feature](https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/search.PNG?raw=true)
+
+* Once the user selects a course they are lead to a page that will show more details about that course, along with a map image of where the course is located, and a carousel from [React Bootstrap](https://react-bootstrap.github.io/) with images of the course.
+
+![Course Details Page](https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/CourseDetails.PNG?raw=true)
+
+* The user can then click on the "Hole By Hole Caddie Tips" button which will lead them to Single Hole Information Page. This page will use a Pagination Navigation Tool from [React Bootstrap](https://react-bootstrap.github.io/) to switch between certain holes at that course. When a hole is selected the user will see information about that hole and a hole layout photo for that particular hole.
+
+![Hole View](https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/HoldDetails1.PNG?raw=true)
+
+* On that same page, the user will be able to scroll down to the Caddie Tips section where users can leave comments with insider tips about that hole. You will notice that if a user has left a comment on that hole already there will be the option to edit that comment, or delete that comment. If it is not their comment, they do not have that option.
+
+![Comments](https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/HoleDetails2%20-Tips.PNG?raw=true)
+
+* The user can also add a new commen ton that hole by clicking on the "Add Comment" button. This pulls up a new modal from [React Bootstrap](https://react-bootstrap.github.io/). The modal will have a comment box and a "Save Changes" button along with a "Close" button.
+
+![Add Comment](https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/AddComment.PNG?raw=true)
+
+* If the user has already left a comment but wants to delete that comment, they can simply click on the "X" button in the top right of the comment they want to delete.
+
+* If the user wants to update a particular comment they have left they can also click on the "Edit Comment" button in the comment box they want to update. This pulls up a new modal from [React Bootstrap](https://react-bootstrap.github.io/) which populates the original comment and allows them to make any changes. They will then click the "Save Changes" button to save the edited comment, or they can dismiss and not save the changes by clicking the "Close" button.
+
+![Edit Comment](https://github.com/phillipsja97/digiCaddie/blob/master/src/Assets/EditComment.PNG?raw=true)
+
+## Live Demo of Digi-Caddie
+
+* Click [Here](digicaddie-capstone.firebaseapp.com) to go to the [Firebase](https://firebase.google.com/) Hosted version of the application.
 
